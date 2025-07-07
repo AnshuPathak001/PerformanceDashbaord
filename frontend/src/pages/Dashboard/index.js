@@ -1,6 +1,6 @@
 import Card from "../../components/card";
 import { FaStar, FaClock, FaBolt, FaCode } from "react-icons/fa";
-import "./dashboard.css";
+import "./style.css";
 
 export default function Dashboard() {
   const cardData = [

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaChevronDown, FaUser } from "react-icons/fa";
-import "./header.css";
+import "./style.css";
 
 export default function Header({ screenName = "Dashboard Overview" }) {
   const [showMenu, setShowMenu] = useState(false);
@@ -23,8 +23,6 @@ export default function Header({ screenName = "Dashboard Overview" }) {
   };
 
   const confirmSignOut = () => {
-    // Example: clear tokens, navigate to login page
-    console.log("User signed out");
     setShowLogoutModal(false);
     navigate("/"); // Change to login page if you have one
   };
