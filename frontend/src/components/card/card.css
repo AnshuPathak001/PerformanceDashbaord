@@ -1,34 +1,44 @@
 .card {
-    background-color: white;
-    border-radius: 10px;
-    border: 1px solid grey;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-  
-  .card:hover {
-    transform: scale(1.01);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .card-icon {
-    position: absolute;
-    top: 15px;
-    left: 15px;
-  }
-  
-  .card-score {
-    font-size: 20px;
-    font-weight: bold;
-    color: #000;
-    margin-top: 40px; /* To give space for icon */
-    margin-bottom: 5px;
-  }
-  
-  .card-label {
-    color: grey;
-    font-size: 14px;
-  }
-  
+  background-color: white;
+  border-radius: 15px;
+  border: 1px solid rgb(216, 215, 215);
+  text-align: center;
+  position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  /* Fixed dimensions */
+  width: 250px;
+  height: 180px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  transform: scale(1.01);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.icon-wrapper {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 12px;
+  border-radius: 8px; /* Adjust for rounded rectangle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-score {
+  font-size: 25px;
+  font-weight: 600;
+  color: #000;
+  margin-top: 40px;
+  margin-bottom: 5px;
+  font-family: "Poppins", sans-serif;
+}
+
+.card-label {
+  color: rgb(58, 57, 57);
+  font-size: 14px;
+}
