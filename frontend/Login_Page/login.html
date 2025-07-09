@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="main-wrapper">
+    <div class="theme-switch-wrapper">
+      <div class="theme-switch" id="themeSwitch" tabindex="0" aria-label="Toggle dark mode" role="switch" aria-checked="false">
+        <span class="switch-thumb"><span class="icon" id="themeIcon">🌙</span></span>
+      </div>
+    </div>
+    <section class="left-panel">
+      <div class="brand-title">Performa X</div>
+      <div class="brand-quote">Performa X brings your people, performance, and purpose into one place.</div>
+    </section>
+    <main class="login-container" aria-label="Login form">
+      <div class="login-title">Sign In</div>
+      <form id="loginForm" autocomplete="on" novalidate>
+        <div>
+          <label for="username">Username or Email</label>
+          <input type="text" id="username" name="username" autocomplete="username" required autofocus tabindex="1" aria-required="true" />
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" required tabindex="2" aria-required="true" />
+        </div>
+        <div class="checkbox-row">
+          <label class="checkbox-label" for="remember">
+            <input type="checkbox" id="remember" name="remember" tabindex="3" />
+            Remember Me
+          </label>
+          <a href="#" class="forgot-link" tabindex="4">Forgot Password?</a>
+        </div>
+        <div class="error-message" id="errorMsg" role="alert"></div>
+        <button type="submit" class="login-btn" id="loginBtn" tabindex="5">
+          <span>Sign In</span>
+          <span class="spinner" id="spinner"></span>
+        </button>
+      </form>
+      <div class="signup-row">
+        Don't have an account?
+        <a href="#" class="signup-link">Sign up</a>
+      </div>
+    </main>
+  </div>
+  <script>
+    // Autofocus on username/email field
+    window.onload = function() {
+      document.getElementById('username').focus();
+    };
+
+    // Dark theme logic with pill switch
+    const themeSwitch = document.getElementById('themeSwitch');
+    const themeIcon = document.getElementById('themeIcon');
+    function setTheme(dark) {
+      if (dark) {
+        document.documentElement.classList.add('dark-theme');
+        themeSwitch.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        themeIcon.textContent = '🌙';
+        themeSwitch.setAttribute('aria-checked', 'true');
+      } else {
+        document.documentElement.classList.remove('dark-theme');
+        themeSwitch.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        themeIcon.textContent = '☀️';
+        themeSwitch.setAttribute('aria-checked', 'false');
+      }
+    }
+    // On load, set theme from localStorage or system preference
+    (function() {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      setTheme(saved === 'dark' || (!saved && prefersDark));
+    })();
+    themeSwitch.addEventListener('click', function() {
+      const isDark = document.documentElement.classList.contains('dark-theme');
+      setTheme(!isDark);
+    });
+    themeSwitch.addEventListener('keydown', function(e) {
+      if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        themeSwitch.click();
+      }
+    });
+
+    // Keyboard navigation: Enter submits, Tab works by default
+    const form = document.getElementById('loginForm');
+    const errorMsg = document.getElementById('errorMsg');
+    const spinner = document.getElementById('spinner');
+    const loginBtn = document.getElementById('loginBtn');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      errorMsg.style.display = 'none';
+      spinner.style.display = 'inline-block';
+      loginBtn.disabled = true;
+      // Simulate async authentication (replace with real logic)
+      setTimeout(() => {
+        spinner.style.display = 'none';
+        loginBtn.disabled = false;
+        // Example: always fail for demo
+        errorMsg.textContent = 'Invalid credentials';
+        errorMsg.style.display = 'block';
+        document.getElementById('password').focus();
+      }, 1500);
+    });
+  </script>
+</body>
+</html> 
