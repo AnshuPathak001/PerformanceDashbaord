@@ -1,6 +1,13 @@
-import { Link, useLocation } from 'react-router-dom';
-import { FaTachometerAlt, FaUser, FaCog, FaPlug, FaClock, FaChartLine } from 'react-icons/fa';
-import './Sidebar.css';
+import { Link, useLocation } from "react-router-dom";
+import {
+  FaTachometerAlt,
+  FaUser,
+  FaCog,
+  FaPlug,
+  FaClock,
+  FaChartLine,
+} from "react-icons/fa";
+import "./style.css";
 
 export default function Sidebar() {
   const location = useLocation();
@@ -10,10 +17,7 @@ export default function Sidebar() {
       <h3>Performance Hub</h3>
       <ul>
         <li>
-          <Link
-            to="/"
-            className={location.pathname === '/' ? 'active' : ''}
-          >
+          <Link to="/" className={location.pathname === "/" ? "active" : ""}>
             <FaTachometerAlt className="sidebar-icon" />
             Dashboard Overview
           </Link>
@@ -21,7 +25,7 @@ export default function Sidebar() {
         <li>
           <Link
             to="/profile"
-            className={location.pathname === '/profile' ? 'active' : ''}
+            className={location.pathname === "/profile" ? "active" : ""}
           >
             <FaUser className="sidebar-icon" />
             My Profile
@@ -30,7 +34,7 @@ export default function Sidebar() {
         <li>
           <Link
             to="/logTimesheet"
-            className={location.pathname === '/logTimesheet' ? 'active' : ''}
+            className={location.pathname === "/logTimesheet" ? "active" : ""}
           >
             <FaClock className="sidebar-icon" />
             Log Timesheet
@@ -39,7 +43,7 @@ export default function Sidebar() {
         <li>
           <Link
             to="/integrations"
-            className={location.pathname === '/integrations' ? 'active' : ''}
+            className={location.pathname === "/integrations" ? "active" : ""}
           >
             <FaPlug className="sidebar-icon" />
             Integration
@@ -48,7 +52,9 @@ export default function Sidebar() {
         <li>
           <Link
             to="/performancereview"
-            className={location.pathname === '/performancereview' ? 'active' : ''}
+            className={
+              location.pathname === "/performancereview" ? "active" : ""
+            }
           >
             <FaChartLine className="sidebar-icon" />
             Performance Review
@@ -57,7 +63,7 @@ export default function Sidebar() {
         <li>
           <Link
             to="/setting"
-            className={location.pathname === '/setting' ? 'active' : ''}
+            className={location.pathname === "/setting" ? "active" : ""}
           >
             <FaCog className="sidebar-icon" />
             Setting
