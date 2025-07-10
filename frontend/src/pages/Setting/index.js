@@ -145,6 +145,8 @@ const validatePasswords = () => {
       </div>
     </div>
 
+
+
     <div className="form-group full-width password-field">
       <label>Confirm Password</label>
       <div className="password-input-wrapper">
