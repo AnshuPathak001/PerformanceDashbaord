@@ -115,3 +115,24 @@
   border-radius: 6px;
   background-color: #f9fafb;
 }
+
+.password-input-wrapper {
+  position: relative;
+  width: 80%;
+}
+
+.password-input-wrapper input {
+  width: 100%;
+  padding-right: 40px; /* space for icon */
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #6b7280;
+  font-size: 16px;
+}
+

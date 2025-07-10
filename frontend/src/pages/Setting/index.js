@@ -1,3 +1,4 @@
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 import "./style.css";
 
 export default function Setting() {
@@ -21,38 +22,43 @@ export default function Setting() {
     }
   };
 
-  const togglePassword = (inputId) => {
+  const togglePassword = (inputId, showId, hideId) => {
   const input = document.getElementById(inputId);
+  const showIcon = document.getElementById(showId);
+  const hideIcon = document.getElementById(hideId);
+
   if (input.type === "password") {
     input.type = "text";
+    showIcon.style.display = "inline";
+    hideIcon.style.display = "none";
   } else {
     input.type = "password";
+    showIcon.style.display = "none";
+    hideIcon.style.display = "inline";
   }
 };
 
-const validatePasswords = () => {
-  const newPass = document.getElementById("new-password").value;
-  const confirmPass = document.getElementById("confirm-password").value;
+  const validatePasswords = () => {
+    const newPass = document.getElementById("new-password").value;
+    const confirmPass = document.getElementById("confirm-password").value;
 
-  if (!newPass || !confirmPass) {
-    alert("Please fill in both password fields.");
-    return;
-  }
+    if (!newPass || !confirmPass) {
+      alert("Please fill in both password fields.");
+      return;
+    }
 
-  if (newPass.length < 8) {
-    alert("Password must be at least 8 characters long.");
-    return;
-  }
+    if (newPass.length < 8) {
+      alert("Password must be at least 8 characters long.");
+      return;
+    }
 
-  if (newPass !== confirmPass) {
-    alert("Passwords do not match.");
-    return;
-  }
+    if (newPass !== confirmPass) {
+      alert("Passwords do not match.");
+      return;
+    }
 
-  alert("Password updated successfully!");
-  // Add save logic here if needed
-};
-
+    alert("Password updated successfully!");
+  };
 
   return (
     <div className="settings-container">
@@ -118,64 +124,61 @@ const validatePasswords = () => {
         </form>
       </div>
 
-    
       {/* Change Password Section */}
-{/* Change Password Section */}
-<div
-  className="settings-form-section"
-  id="password-section"
-  style={{ display: "none" }}
->
-  <h3>Change Password</h3>
-  <form className="settings-form">
-    <div className="form-group full-width password-field">
-      <label>New Password</label>
-      <div className="password-input-wrapper">
-        <input
-          type="password"
-          placeholder="Enter new password"
-          id="new-password"
-        />
-        <span
-          className="toggle-password"
-          onClick={() => togglePassword("new-password")}
-        >
-          🚫
-        </span>
-      </div>
-    </div>
-
-
-
-    <div className="form-group full-width password-field">
-      <label>Confirm Password</label>
-      <div className="password-input-wrapper">
-        <input
-          type="password"
-          placeholder="Re-enter password"
-          id="confirm-password"
-        />
-        <span
-          className="toggle-password"
-          onClick={() => togglePassword("confirm-password")}
-        >
-          🚫
-        </span>
-      </div>
-    </div>
-
-    <div className="button-row">
-      <button
-        type="button"
-        className="save-button"
-        onClick={validatePasswords}
+      <div
+        className="settings-form-section"
+        id="password-section"
+        style={{ display: "none" }}
       >
-        Save Changes
-      </button>
-    </div>
-  </form>
+        <h3>Change Password</h3>
+        <form className="settings-form">
+          <div className="form-group full-width password-field">
+  <label>New Password</label>
+  <div className="password-input-wrapper">
+    <input
+      type="password"
+      id="new-password"
+      placeholder="Enter new password"
+    />
+    <span
+      className="toggle-password"
+      onClick={() => togglePassword("new-password", "eye-open-new", "eye-closed-new")}
+    >
+      <FaEye id="eye-open-new" style={{ display: "none" }} />
+      <FaEyeSlash id="eye-closed-new" style={{ display: "inline" }} />
+    </span>
+  </div>
 </div>
 
+<div className="form-group full-width password-field">
+  <label>Confirm Password</label>
+  <div className="password-input-wrapper">
+    <input
+      type="password"
+      id="confirm-password"
+      placeholder="Re-enter password"
+    />
+    <span
+      className="toggle-password"
+      onClick={() => togglePassword("confirm-password", "eye-open-confirm", "eye-closed-confirm")}
+    >
+      <FaEye id="eye-open-confirm" style={{ display: "none" }} />
+      <FaEyeSlash id="eye-closed-confirm" style={{ display: "inline" }} />
+    </span>
+  </div>
+</div>
+
+          <div className="button-row">
+            <button
+              type="button"
+              className="save-button"
+              onClick={validatePasswords}
+            >
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
