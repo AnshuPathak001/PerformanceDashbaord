@@ -19,5 +19,6 @@ export default function Card({
       <p className="card-score">{score}</p>
       <p className="card-label">{label}</p>
     </div>
-  );
+    );
+// end
 }
