@@ -5,7 +5,7 @@ import MyProfile from './pages/MyProfile';
 import Setting from './pages/Setting';
 import Integrations from './pages/Integrations';
 import LogTimesheet from './pages/LogTimesheet';
-import PerformanceReview from './pages/PerformanceReview';
+import PerformanceReview from './pages/PerformanceReview/index';
 import Header from './components/header/index';
 import './App.css'; // Add this for layout CSS
 
