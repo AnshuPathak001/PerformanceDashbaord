@@ -1,13 +1,18 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Sidebar from './components/sidebar/index';
-import Dashboard from './pages/Dashboard';
-import MyProfile from './pages/MyProfile';
-import Setting from './pages/Setting';
-import Integrations from './pages/Integrations';
-import LogTimesheet from './pages/LogTimesheet';
-import PerformanceReview from './pages/PerformanceReview';
-import Header from './components/header/index';
-import './App.css'; // Add this for layout CSS
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
+
+import Sidebar from "./components/sidebar";
+import Dashboard from "./pages/Dashboard";
+import MyProfile from "./pages/MyProfile";
+import Setting from "./pages/Setting/index";
+import Integrations from "./pages/Integrations";
+import LogTimesheet from "./pages/LogTimesheet";
+import PerformanceReview from "./pages/PerformanceReview";
+import Header from "./components/header";
 
 function App() {
   return (
