@@ -50,10 +50,8 @@
 
 .performance-cards-container {
   display: flex;
-  gap: 20px;
-  justify-content: space-between; /* or use center if you want to center them */
   flex-wrap: wrap;
-  width: 100%;
+  gap: 20px; /* spacing between cards */
 }
 
 .weightage-card {
