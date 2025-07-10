@@ -4,10 +4,11 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
+
 import Sidebar from "./components/sidebar";
 import Dashboard from "./pages/Dashboard";
 import MyProfile from "./pages/MyProfile";
-import Setting from "./pages/Setting";
+import Setting from "./pages/Setting/index";
 import Integrations from "./pages/Integrations";
 import LogTimesheet from "./pages/LogTimesheet";
 import PerformanceReview from "./pages/PerformanceReview";
