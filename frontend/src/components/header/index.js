@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FaChevronDown, FaUser } from "react-icons/fa";
 import "./style.css";
 
-export default function Header({ screenName = "Dashboard Overview" }) {
+export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
   const navigate = useNavigate();
@@ -34,7 +34,6 @@ export default function Header({ screenName = "Dashboard Overview" }) {
   return (
     <>
       <div className="header-container">
-        <h2 className="header-screen-name">{screenName}</h2>
 
         <div className="header-profile" onClick={handleToggleMenu}>
           <div className="profile-avatar">
