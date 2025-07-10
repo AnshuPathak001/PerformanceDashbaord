@@ -18,4 +18,8 @@ yarn-error.log*
 .env*.local
 .env
 
+# lock file
 package-lock.json
+
+# Visual Studio Code workspace folder
+.vs/
