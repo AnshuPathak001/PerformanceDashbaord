@@ -3,7 +3,7 @@ import Sidebar from './components/sidebar/index';
 import Dashboard from './pages/Dashboard';
 import MyProfile from './pages/MyProfile';
 import Setting from './pages/Setting/index';
-import Integrations from './pages/Integrations';
+import Integrations from './pages/Integrations/index';
 import LogTimesheet from './pages/LogTimesheet';
 import PerformanceReview from './pages/PerformanceReview/index';
 import Header from './components/header/index';
