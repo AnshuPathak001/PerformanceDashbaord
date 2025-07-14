@@ -6,12 +6,16 @@
   position: relative;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-  /* Fixed dimensions */
-  width: 250px;
-  height: 180px;
+  /* Remove fixed width and height */
+  /* width: 250px; */
+  /* height: 180px; */
+
   padding: 20px;
+  flex: 1 1 200px; /* Flexible: grow, shrink, base width */
+
   box-sizing: border-box;
 }
+
 
 .card:hover {
   transform: scale(1.01);
