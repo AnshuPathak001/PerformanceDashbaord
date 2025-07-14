@@ -1,0 +1,183 @@
+.integrations-container {
+  padding: 24px;
+  font-family: "Inter", sans-serif;
+  background: #f5f7fa;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.page-description {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.status-container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.status-cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status-card {
+  text-align: center;
+  flex: 1;
+}
+
+.status-value {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.status-label {
+  color: #555;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.green {
+  color: #2e7d32;
+}
+
+.red {
+  color: #d32f2f;
+}
+
+.blue {
+  color: #2962ff;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 20px;
+}
+
+.tool-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tool-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tool-icon {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  color: #2e7d32;
+}
+
+.green-bg {
+  background-color: #e6f4ea;
+}
+
+.tool-info {
+  flex: 1;
+}
+
+.tool-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.tool-description {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.tool-status.connected {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2e7d32;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tool-stats {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  margin: 16px 0;
+}
+
+.label {
+  font-size: 12px;
+  color: #666;
+}
+
+.value {
+  font-weight: 600;
+  font-size: 14px;
+  color: #1c1c1e;
+}
+
+.tool-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.last-sync {
+  font-size: 13px;
+  color: #555;
+}
+
+.tool-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.disconnect-btn {
+  background: #ffe5e5;
+  color: #d32f2f;
+  border: none;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.disconnect-btn:hover {
+  background: #ffcccc;
+}
+
+.action-icon {
+  color: #555;
+  cursor: pointer;
+  font-size: 16px;
+}
