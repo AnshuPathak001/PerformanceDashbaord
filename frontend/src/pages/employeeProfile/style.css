@@ -1,0 +1,171 @@
+.profile-container {
+  margin: auto;
+  font-family: "Inter", sans-serif;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #222;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 28px;
+}
+
+.section {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.horizontal-section {
+  display: flex;
+  gap: 20px;
+}
+
+.profile-photo {
+  flex: 0 0 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-placeholder {
+  width: 100px;
+  height: 100px;
+  background: #e5e7eb;
+  border-radius: 50%;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.upload-btn {
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.personal-info {
+  flex: 1;
+}
+
+.personal-info h3 {
+  margin-top: 0;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.input-group label {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.input-group input,
+.input-group select,
+textarea {
+  padding: 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+textarea {
+  width: 100%;
+}
+
+.role-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.role-details .input-group {
+  flex: 1 1 200px;
+}
+
+.skills-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.skills-input input {
+  flex: 1;
+}
+
+.skills-input button {
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  display: flex;
+  align-items: center;
+  background: #e5e7eb;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.skill-tag button {
+  background: none;
+  border: none;
+  margin-left: 5px;
+  cursor: pointer;
+  color: #f87171;
+}
+
+.skill-tag .level {
+  margin-left: 5px;
+  color: #555;
+}
+
+/* Skill level colors */
+.skill-tag.expert {
+  background: #d1fae5;
+}
+
+.skill-tag.advanced {
+  background: #bfdbfe;
+}
+
+.skill-tag.intermediate {
+  background: #fde68a;
+}
+
+.skill-tag.beginner {
+  background: #fecaca;
+}
+
+.save-btn {
+  background-color: #3b82f6;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+}
