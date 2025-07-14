@@ -1,13 +1,13 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Sidebar from './components/sidebar/index';
-import Dashboard from './pages/Dashboard';
-import MyProfile from './pages/MyProfile';
-import Setting from './pages/Setting/index';
-import Integrations from './pages/Integrations';
-import LogTimesheet from './pages/LogTimesheet';
-import PerformanceReview from './pages/PerformanceReview/index';
-import Header from './components/header/index';
-import './App.css'; // Add this for layout CSS
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Sidebar from "./components/sidebar/index";
+import Dashboard from "./pages/Dashboard";
+import Setting from "./pages/Setting/index";
+import Integrations from "./pages/Integrations";
+import LogTimesheet from "./pages/LogTimesheet";
+import PerformanceReview from "./pages/PerformanceReview/index";
+import Header from "./components/header/index";
+import "./App.css"; // Add this for layout CSS
+import EmployeeProfile from "./pages/employeeProfile/index";
 
 function App() {
   return (
@@ -19,10 +19,13 @@ function App() {
           <div className="screen-content">
             <Routes>
               <Route path="/" element={<Dashboard />} />
-              <Route path="/profile" element={<MyProfile />} />
+              <Route path="/profile" element={<EmployeeProfile />} />
               <Route path="/logtimesheet" element={<LogTimesheet />} />
               <Route path="/integrations" element={<Integrations />} />
-              <Route path="/performancereview" element={<PerformanceReview />} />
+              <Route
+                path="/performancereview"
+                element={<PerformanceReview />}
+              />
               <Route path="/setting" element={<Setting />} />
             </Routes>
           </div>

@@ -1,0 +1,24 @@
+.date-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 0 8px;
+  cursor: pointer;
+  height: 38px;
+  position: relative;
+}
+
+.date-input-wrapper input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.calendar-icon {
+  color: #000;
+  pointer-events: none; /* Icon should not block click events */
+}
