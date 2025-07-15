@@ -11,7 +11,7 @@ import Setting from "./pages/Setting/index";
 import LogTimesheet from "./pages/LogTimesheet";
 import PerformanceReview from "./pages/PerformanceReview/index";
 import Header from "./components/header/index";
-import EmployeeProfile from "./pages/EmployeeProfile/index";
+import EmployeeProfile from "./pages/MyProfile/index";
 import Integrations from "./pages/Integrations/index";
 import Login from "./pages/Login/index"; // 👈 import login page
 import "./App.css";
