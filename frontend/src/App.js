@@ -19,8 +19,8 @@ import "./App.css";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
+  const handleLogin = (flag) => {
+    setIsLoggedIn(flag);
   };
 
   if (!isLoggedIn) {

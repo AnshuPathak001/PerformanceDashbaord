@@ -1,15 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect  } from "react";
 import "./style.css";
-
+import axios from 'axios';
+   
 export default function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [flag, setFlag] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onLogin();
-  };
+  useEffect(() => {
+    console.log('flag changed:', flag);
+    onLogin(flag);
+  }, [flag]);
+
+const handleLogin = (e) => {
+   const res = axios.get('http://localhost:5000/users/' + email)   
+   .then(res =>
+    {
+      if(res.data.password == password)
+      {
+        console.error("password matched")
+        setFlag(true);
+      }
+    })
+    .catch(err => console.error(err));
+}
 
   return (
     <div className="login-page">
@@ -22,7 +37,7 @@ export default function Login({ onLogin }) {
         </p>
       </div>
       <div className="login-right">
-        <form className="login-box" onSubmit={handleSubmit}>
+        <div className="login-box">
           <h2>Sign In</h2>
           <label>Username or Email</label>
           <input
@@ -51,13 +66,13 @@ export default function Login({ onLogin }) {
               Forgot Password?
             </a>
           </div>
-          <button type="submit" className="signin-button">
+          <button onClick={handleLogin} className="signin-button">
             Sign In
           </button>
           <p className="signup-text">
-            Don't have an account? <a href="#">Sign up</a>
+            Don't have an account? <a >Sign up</a>
           </p>
-        </form>
+        </div>
       </div>
     </div>
   );
