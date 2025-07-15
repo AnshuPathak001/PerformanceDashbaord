@@ -1,17 +1,32 @@
-
-
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import { useState } from "react";
 import Sidebar from "./components/sidebar/index";
 import Dashboard from "./pages/Dashboard";
 import Setting from "./pages/Setting/index";
 import LogTimesheet from "./pages/LogTimesheet";
 import PerformanceReview from "./pages/PerformanceReview/index";
 import Header from "./components/header/index";
-import "./App.css"; // Add this for layout CSS
 import EmployeeProfile from "./pages/employeeProfile/index";
-import Integrations from './pages/Integrations/index';
+import Integrations from "./pages/Integrations/index";
+import Login from "./pages/Dashboard/login/index"; // 👈 import login page
+import "./App.css";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  if (!isLoggedIn) {
+    return <Login onLogin={handleLogin} />;
+  }
+
   return (
     <Router>
       <div className="app-container">
@@ -29,6 +44,7 @@ function App() {
                 element={<PerformanceReview />}
               />
               <Route path="/setting" element={<Setting />} />
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </div>
         </div>
