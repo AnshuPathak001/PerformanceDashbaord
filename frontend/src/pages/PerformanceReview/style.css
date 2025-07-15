@@ -3,6 +3,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .year-controls {
@@ -12,18 +13,19 @@
 }
 
 .year-select {
-  padding: 6px 10px;
+  padding: 10px 20px 10px 20px;
   border-radius: 6px;
   border: 1px solid #ddd;
 }
 
 .generate-button {
-  padding: 6px 15px;
+  padding: 10px 30px;
   border: none;
   border-radius: 6px;
-  background-color: #3498db;
+  background-color: #1884f0;
   color: white;
   cursor: pointer;
+  font-size: 15px;
 }
 
 .generate-button:hover {
@@ -31,8 +33,9 @@
 }
 
 .progress-bar-container {
-  width: 120px;
+  width: 150px;
   margin: 20px auto;
+  height: 150px;
 }
 
 .progress-card {

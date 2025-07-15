@@ -2,10 +2,14 @@ import { useState } from "react";
 import Card from "../../components/card";
 import { FaStar, FaClock, FaBolt, FaCode, FaCog } from "react-icons/fa";
 import "./style.css";
-import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+// import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import Slider from "@mui/material/Slider";
 import ScoreCard from "../../components/performanceScoreCard";
+import {
+  CircularProgressbarWithChildren,
+  buildStyles,
+} from "react-circular-progressbar";
 
 export default function PerformanceReview() {
   const [year, setYear] = useState("2024");
@@ -70,18 +74,25 @@ export default function PerformanceReview() {
         </div>
       </div>
 
-      {/* Circular progress bar */}
       <div className="progress-card">
         <div className="progress-bar-container">
-          <CircularProgressbar
+          <CircularProgressbarWithChildren
             value={score}
-            text={`${score}%`}
             styles={buildStyles({
-              textColor: "#333",
-              pathColor: "#3498db",
+              pathColor: "#1884f0",
               trailColor: "#eee",
             })}
-          />
+          >
+            <div style={{ textAlign: "center" }}>
+              <div style={{ fontSize: 24, fontWeight: "bold", color: "#111" }}>
+                {score}
+              </div>
+              <div style={{ fontSize: 14, color: "#555" }}>Overall Score</div>
+              <div style={{ fontSize: 14, color: "green", fontWeight: "bold" }}>
+                Excellent
+              </div>
+            </div>
+          </CircularProgressbarWithChildren>
         </div>
       </div>
 
