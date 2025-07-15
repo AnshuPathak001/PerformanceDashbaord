@@ -11,9 +11,9 @@ import Setting from "./pages/Setting/index";
 import LogTimesheet from "./pages/LogTimesheet";
 import PerformanceReview from "./pages/PerformanceReview/index";
 import Header from "./components/header/index";
-import EmployeeProfile from "./pages/employeeProfile/index";
+import EmployeeProfile from "./pages/EmployeeProfile/index";
 import Integrations from "./pages/Integrations/index";
-import Login from "./pages/Dashboard/login/index"; // 👈 import login page
+import Login from "./pages/Dashboard/Login/index"; // 👈 import login page
 import "./App.css";
 
 function App() {
