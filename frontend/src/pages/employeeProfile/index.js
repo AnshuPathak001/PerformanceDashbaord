@@ -47,10 +47,12 @@ const EmployeeProfile = () => {
 
   return (
     <div className="profile-container">
-      <h2>My Profile</h2>
-      <p className="subtitle">
-        Manage your personal and professional information
-      </p>
+      <div className="dashboard-left">
+        <h1 className="dashboard-title">My Profile</h1>
+        <p className="dashboard-subtitle">
+          Manage your personal and professional information
+        </p>
+      </div>
 
       <div className="section horizontal-section">
         <div className="profile-photo">
