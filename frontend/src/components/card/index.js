@@ -5,6 +5,7 @@ export default function Card({
   label = "Overall score",
   Icon,
   color = "#333",
+  description = "Overall",
 }) {
   // Create a transparent background color using the icon color with opacity
   const backgroundColor = `${color}20`; // e.g., #3498db20 for a light blue (hex with alpha)
@@ -18,6 +19,7 @@ export default function Card({
       )}
       <p className="card-score">{score}</p>
       <p className="card-label">{label}</p>
+      <p className="card-label">{description}</p>
     </div>
   );
 }

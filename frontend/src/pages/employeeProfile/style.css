@@ -45,13 +45,26 @@ h2 {
   margin-bottom: 10px;
 }
 
+.photo-preview {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
 .upload-btn {
+  display: inline-block;
+  padding: 6px 12px;
   background-color: #3b82f6;
   color: #fff;
-  border: none;
-  padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 14px;
+}
+
+.upload-btn:hover {
+  background-color: #2f65d9;
 }
 
 .personal-info {

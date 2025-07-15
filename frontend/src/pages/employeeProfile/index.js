@@ -3,7 +3,7 @@ import "./style.css";
 import DatePicker from "react-datepicker";
 import { FaCalendarAlt } from "react-icons/fa";
 import "react-datepicker/dist/react-datepicker.css";
-import CustomDateInput from "../../components/customDateInput/index"; // import your custom input
+import CustomDateInput from "../../components/customDateInput/index";
 
 const EmployeeProfile = () => {
   const [skills, setSkills] = useState([
@@ -22,6 +22,7 @@ const EmployeeProfile = () => {
   const [joinDate, setJoinDate] = useState(new Date("2022-03-15"));
   const [name, setName] = useState("Sarah Johnson");
   const [employeeId, setEmployeeId] = useState("EMP-2024-001");
+  const [photo, setPhoto] = useState(null);
 
   const handleAddSkill = () => {
     if (newSkill.trim() === "") return;
@@ -36,17 +37,38 @@ const EmployeeProfile = () => {
     setSkills(updated);
   };
 
+  const handlePhotoUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const previewURL = URL.createObjectURL(file);
+      setPhoto(previewURL);
+    }
+  };
+
   return (
     <div className="profile-container">
-      <h2>Employee Profile</h2>
+      <h2>My Profile</h2>
       <p className="subtitle">
         Manage your personal and professional information
       </p>
 
       <div className="section horizontal-section">
         <div className="profile-photo">
-          <div className="photo-placeholder">👤</div>
-          <button className="upload-btn">Upload Photo</button>
+          {photo ? (
+            <img src={photo} alt="Profile" className="photo-preview" />
+          ) : (
+            <div className="photo-placeholder">👤</div>
+          )}
+
+          <label className="upload-btn">
+            Upload Photo
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handlePhotoUpload}
+              style={{ display: "none" }}
+            />
+          </label>
         </div>
 
         <div className="personal-info">
@@ -89,9 +111,6 @@ const EmployeeProfile = () => {
               onChange={(e) => setRole(e.target.value)}
             />
           </div>
-          {/* <div className="input-group join-date-group"> */}
-          {/* <label>Join Date</label> */}
-
           <div className="input-group">
             <label>Join Date</label>
             <DatePicker
@@ -101,7 +120,6 @@ const EmployeeProfile = () => {
               customInput={<CustomDateInput />}
             />
           </div>
-
           <div className="input-group">
             <label>Direct Manager</label>
             <select defaultValue="John Smith">

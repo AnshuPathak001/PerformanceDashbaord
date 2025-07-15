@@ -4,10 +4,34 @@ import "./style.css";
 
 export default function Dashboard() {
   const cardData = [
-    { score: "85/100", label: "Overall Score", icon: FaStar, color: "#f1c40f" },
-    { score: "8h", label: "Billable Hours", icon: FaClock, color: "#2ecc71" },
-    { score: "24", label: "Jira Velocity", icon: FaBolt, color: "#3498db" },
-    { score: "10", label: "Code Contribution", icon: FaCode, color: "#e67e22" },
+    {
+      score: "85/100",
+      label: "Overall Score",
+      description: "Based on the self-assessments.",
+      icon: FaStar,
+      color: "#f1c40f",
+    },
+    {
+      score: "8h",
+      label: "Billable Hours",
+      description: "Tracked from timesheets this week.",
+      icon: FaClock,
+      color: "#2ecc71",
+    },
+    {
+      score: "24",
+      label: "Jira Velocity",
+      description: "Tickets completed in the current sprint.",
+      icon: FaBolt,
+      color: "#3498db",
+    },
+    {
+      score: "10",
+      label: "Code Contribution",
+      description: "Merged pull requests & commits this month.",
+      icon: FaCode,
+      color: "#e67e22",
+    },
   ];
 
   const activities = [
@@ -30,10 +54,18 @@ export default function Dashboard() {
 
   return (
     <div className="dashboard-container">
-      <h1 className="dashboard-title">Dashboard Overview</h1>
-      <p className="dashboard-subtitle">
-        Welcome back, Sarah! Here's your performance summary.
-      </p>
+      <div className="dashboard-header">
+        <div className="dashboard-left">
+          <h1 className="dashboard-title">My Overview</h1>
+          <p className="dashboard-subtitle">
+            Welcome back, Anshu! Here's your performance summary.
+          </p>
+        </div>
+        <div className="dashboard-right">
+          <p className="period-label">Current Period</p>
+          <p className="period-value">2025</p>
+        </div>
+      </div>
 
       <div className="cards-container">
         {cardData.map((item, index) => (
@@ -43,6 +75,7 @@ export default function Dashboard() {
             label={item.label}
             Icon={item.icon}
             color={item.color}
+            description={item.description}
           />
         ))}
       </div>

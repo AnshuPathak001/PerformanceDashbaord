@@ -89,3 +89,41 @@
   width: 20px;
   height: 20px;
 }
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 🔥 changed from flex-start to center */
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.dashboard-left {
+  flex: 1;
+}
+
+.dashboard-right {
+  text-align: right;
+}
+
+.dashboard-title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.dashboard-subtitle {
+  margin: 5px 0 0 0;
+  color: #6b7280; /* gray-500 */
+}
+
+.period-label {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.period-value {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
