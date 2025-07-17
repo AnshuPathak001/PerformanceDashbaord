@@ -165,15 +165,6 @@
   background-color: #1d4ed8;
 }
 
-.dark-theme .save-button {
-  background-color: #374151;
-  color: #fff;
-}
-
-.dark-theme .save-button:hover {
-  background-color: #4b5563;
-}
-
 .dropdown {
   width: 100%;
   padding: 10px 14px;
@@ -216,4 +207,13 @@
 /* Force settings header title to white in dark mode */
 .dark-theme .settings-header h2 {
   color: #ffffff !important;
+}
+
+.dark-theme .save-button {
+background-color: #2563eb;
+  color: white;
+}
+
+.dark-theme .save-button:hover {
+  background-color: #1d4ed8;
 }

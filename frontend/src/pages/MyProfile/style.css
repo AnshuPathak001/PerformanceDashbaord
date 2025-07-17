@@ -233,7 +233,45 @@ textarea {
 }
 
 .dark-theme .subtitle,
-.dark-theme .dashboard-subtitle,
-.dark-theme .skill-tag .level {
+.dark-theme .dashboard-subtitle {
   color: #6b7280 !important; /* keep gray */
+}
+.dark-theme .skill-tag .level {
+  color: none !important; /* keep gray */
+  background-color: none;
+}
+
+.dark-theme .save-btn {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.dark-theme .save-btn:hover {
+  background-color: #2f65d9;
+}
+
+.skill-tag button {
+  background: none;
+  border: none;
+  margin-left: 5px;
+  cursor: pointer;
+  color: #f87171;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+}
+
+/* Ensure dark mode doesn't override it */
+.dark-theme .skill-tag button {
+  background: none !important;
+  color: #f87171 !important;
+}
+
+/* DARK MODE: Make all text inside the React (Expert) skill tag black */
+.dark-theme .skill-tag {
+  color: #000 !important;
+}
+
+.dark-theme .skill-tag.expert .level {
+  color: #6b7280 !important; /* (Expert) text — grey */
 }

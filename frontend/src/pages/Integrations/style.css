@@ -26,7 +26,7 @@
 }
 
 .dark-theme .page-description {
-  color: #999; /* Keep grey visible */
+  color: #999;
 }
 
 .status-container {
@@ -40,7 +40,7 @@
 
 .dark-theme .status-container {
   background-color: #111;
-  border: none; /* Removed border in dark mode */
+  border: none;
 }
 
 .section-title {
@@ -63,6 +63,22 @@
 .status-value {
   font-size: 20px;
   font-weight: 600;
+}
+
+.status-value.green {
+  color: #2e7d32 !important;
+}
+
+.status-value.red {
+  color: #d32f2f !important;
+}
+
+.status-value.blue {
+  color: #2962ff !important;
+}
+
+.status-value.black {
+  color: #000 !important;
 }
 
 .status-label {
@@ -227,6 +243,15 @@
   background: #ffcccc;
 }
 
+.dark-theme .disconnect-btn {
+  color: #d32f2f;
+  background-color: #ffe5e5;
+}
+
+.dark-theme .disconnect-btn:hover {
+  background: #ffcccc;
+}
+
 .action-icon {
   color: #333;
   cursor: pointer;
@@ -237,7 +262,7 @@
   color: #aaa;
 }
 
-/* Remove white border around status cards only in dark mode */
+/* Remove white border around status cards in dark mode */
 .dark-theme .status-cards .status-card {
   border: none !important;
 }

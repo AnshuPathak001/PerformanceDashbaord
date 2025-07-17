@@ -32,6 +32,15 @@
   background-color: #2d7acb;
 }
 
+.dark-theme .generate-button {
+  background-color: #1884f0;
+  color: white;
+}
+
+.dark-theme .generate-button:hover {
+  background-color: #2d7acb;
+}
+
 .progress-bar-container {
   width: 150px;
   margin: 20px auto;
