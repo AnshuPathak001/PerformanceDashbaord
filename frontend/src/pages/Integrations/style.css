@@ -1,18 +1,32 @@
 .integrations-container {
-  padding: 24px;
+  padding: 0;
   font-family: "Inter", sans-serif;
   background: #f5f7fa;
+  color: #000;
+}
+
+/* Dark Mode */
+.dark-theme .integrations-container {
+  background: #000;
+  color: #fff;
 }
 
 .page-title {
-  font-size: 26px;
+  padding: 0;
+  font-size: 24px;
   font-weight: 700;
+  margin-top: 0;
   margin-bottom: 4px;
 }
 
 .page-description {
+  margin-top: 0;
   color: #666;
   margin-bottom: 24px;
+}
+
+.dark-theme .page-description {
+  color: #999; /* Keep grey visible */
 }
 
 .status-container {
@@ -21,6 +35,12 @@
   padding: 20px 24px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
   margin-bottom: 32px;
+  border: 1px solid #ddd;
+}
+
+.dark-theme .status-container {
+  background-color: #111;
+  border: none; /* Removed border in dark mode */
 }
 
 .section-title {
@@ -37,6 +57,7 @@
 .status-card {
   text-align: center;
   flex: 1;
+  border: none;
 }
 
 .status-value {
@@ -48,6 +69,10 @@
   color: #555;
   font-size: 14px;
   margin-top: 4px;
+}
+
+.dark-theme .status-label {
+  color: #aaa;
 }
 
 .green {
@@ -76,6 +101,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border: 1px solid #ddd;
+}
+
+.dark-theme .tool-card {
+  background: #111;
+  border: 1px solid #333;
 }
 
 .tool-header {
@@ -112,7 +143,11 @@
 .tool-description {
   margin: 2px 0 0;
   font-size: 14px;
-  color: #666;
+  color: #555;
+}
+
+.dark-theme .tool-description {
+  color: #aaa;
 }
 
 .tool-status.connected {
@@ -125,7 +160,7 @@
 }
 
 .tool-stats {
-  background-color: #f8f9fa;
+  background-color: #f0f2f5;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
@@ -133,15 +168,27 @@
   margin: 16px 0;
 }
 
+.dark-theme .tool-stats {
+  background-color: #222;
+}
+
 .label {
   font-size: 12px;
-  color: #666;
+  color: #444;
+}
+
+.dark-theme .label {
+  color: #999;
 }
 
 .value {
   font-weight: 600;
   font-size: 14px;
   color: #1c1c1e;
+}
+
+.dark-theme .value {
+  color: #fff;
 }
 
 .tool-footer {
@@ -153,6 +200,10 @@
 .last-sync {
   font-size: 13px;
   color: #555;
+}
+
+.dark-theme .last-sync {
+  color: #aaa;
 }
 
 .tool-actions {
@@ -177,7 +228,56 @@
 }
 
 .action-icon {
-  color: #555;
+  color: #333;
   cursor: pointer;
   font-size: 16px;
+}
+
+.dark-theme .action-icon {
+  color: #aaa;
+}
+
+/* Remove white border around status cards only in dark mode */
+.dark-theme .status-cards .status-card {
+  border: none !important;
+}
+
+/* Header and Add Button Section */
+.integration-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.integration-title {
+  max-width: 70%;
+}
+
+.add-integration-button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-integration-button:hover {
+  background-color: #1d4ed8;
+}
+
+.dark-theme .add-integration-button {
+  background-color: #3b82f6;
+}
+
+.dark-theme .add-integration-button:hover {
+  background-color: #2563eb;
 }

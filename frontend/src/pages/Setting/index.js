@@ -64,7 +64,7 @@ export default function Setting() {
     <div className="settings-container">
       <div className="settings-header">
         <h2>Settings</h2>
-        <p>Manage your account preferences and system settings</p>
+        <p className="setting-description">Manage your account preferences and system settings</p>
       </div>
 
       <div className="settings-tabs">

@@ -3,6 +3,7 @@
   font-family: Arial, sans-serif;
 }
 
+/* --- Light Theme Defaults --- */
 .dashboard-title {
   font-size: 28px;
   font-weight: bold;
@@ -18,9 +19,9 @@
 
 .cards-container {
   display: flex;
-  flex-wrap: nowrap; /* ❗ Prevent cards from moving to next line */
+  flex-wrap: nowrap;
   gap: 20px;
-  overflow-x: auto; /* Optional: allows horizontal scroll if they don't fit */
+  overflow-x: auto;
 }
 
 .bottom-cards-container {
@@ -84,16 +85,10 @@
   height: 32px;
 }
 
-.activity-icon {
-  color: #3498db;
-  width: 20px;
-  height: 20px;
-}
-
 .dashboard-header {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* 🔥 changed from flex-start to center */
+  align-items: center;
   flex-wrap: wrap;
   margin-bottom: 30px;
 }
@@ -113,7 +108,7 @@
 
 .dashboard-subtitle {
   margin: 5px 0 0 0;
-  color: #6b7280; /* gray-500 */
+  color: #6b7280;
 }
 
 .period-label {
@@ -126,4 +121,39 @@
   font-size: 18px;
   font-weight: bold;
   margin: 0;
+}
+
+/* --- Dark Theme Overrides --- */
+.dark-theme .dashboard-title {
+  color: #ffffff;
+}
+
+.dark-theme .dashboard-subtitle {
+  color: #aaaaaa;
+}
+
+.dark-theme .bottom-card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  color: #ffffff;
+}
+
+.dark-theme .activity-subtitle {
+  color: #cccccc;
+}
+
+.dark-theme .activity-icon-wrapper {
+  background-color: #2a2a2a;
+}
+
+.dark-theme .activity-icon {
+  color: #66b2ff;
+}
+
+.dark-theme .period-label {
+  color: #cccccc;
+}
+
+.dark-theme .period-value {
+  color: #ffffff;
 }

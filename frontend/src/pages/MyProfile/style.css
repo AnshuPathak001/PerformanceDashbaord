@@ -19,6 +19,7 @@ h2 {
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
+  color: #000;
 }
 
 .horizontal-section {
@@ -73,6 +74,7 @@ h2 {
 
 .personal-info h3 {
   margin-top: 0;
+  color: #000;
 }
 
 .input-group {
@@ -85,6 +87,7 @@ h2 {
 .input-group label {
   font-size: 12px;
   margin-bottom: 4px;
+  color: #000;
 }
 
 .input-group input,
@@ -93,6 +96,8 @@ textarea {
   padding: 8px;
   border: 1px solid #d1d5db;
   border-radius: 6px;
+  background: #fff;
+  color: #000;
 }
 
 textarea {
@@ -192,9 +197,43 @@ textarea {
 .dashboard-title {
   margin: 0;
   font-size: 24px;
+  color: #000;
 }
 
 .dashboard-subtitle {
   margin: 5px 0 0 0;
-  color: #6b7280; /* gray-500 */
+  color: #6b7280;
+}
+
+/* ---------------------- */
+/*      DARK MODE         */
+/* ---------------------- */
+.dark-theme h2,
+.dark-theme .dashboard-title,
+.dark-theme .input-group label,
+.dark-theme .personal-info h3 {
+  color: #ffffff;
+}
+
+.dark-theme .section {
+  background: #111 !important;
+  color: #ffffff;
+}
+
+.dark-theme .input-group input,
+.dark-theme .input-group select,
+.dark-theme textarea {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.dark-theme .photo-placeholder {
+  background: #2a2a2a;
+}
+
+.dark-theme .subtitle,
+.dark-theme .dashboard-subtitle,
+.dark-theme .skill-tag .level {
+  color: #6b7280 !important; /* keep gray */
 }

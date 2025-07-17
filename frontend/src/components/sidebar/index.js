@@ -66,7 +66,7 @@ export default function Sidebar() {
             className={location.pathname === "/setting" ? "active" : ""}
           >
             <FaCog className="sidebar-icon" />
-            Setting
+            Settings
           </Link>
         </li>
       </ul>
