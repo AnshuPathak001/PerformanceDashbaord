@@ -6,7 +6,7 @@ export default function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [flag, setFlag] = useState(false);
+  const [flag, setFlag] = useState(true);
 
   useEffect(() => {
     console.log('flag changed:', flag);
@@ -14,16 +14,16 @@ export default function Login({ onLogin }) {
   }, [flag]);
 
 const handleLogin = (e) => {
-   const res = axios.get('http://localhost:5000/users/' + email)   
-   .then(res =>
-    {
-      if(res.data.password == password)
-      {
-        console.error("password matched")
-        setFlag(true);
-      }
-    })
-    .catch(err => console.error(err));
+  //  const res = axios.get('http://localhost:5000/users/' + email)   
+  //  .then(res =>
+  //   {
+  //     if(res.data.password == password)
+  //     {
+  //       console.error("password matched")
+  //       setFlag(true);
+  //     }
+  //   })
+  //   .catch(err => console.error(err));
 }
 
   return (

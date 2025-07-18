@@ -19,6 +19,7 @@ h2 {
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
+  color: #000;
 }
 
 .horizontal-section {
@@ -73,6 +74,7 @@ h2 {
 
 .personal-info h3 {
   margin-top: 0;
+  color: #000;
 }
 
 .input-group {
@@ -85,6 +87,7 @@ h2 {
 .input-group label {
   font-size: 12px;
   margin-bottom: 4px;
+  color: #000;
 }
 
 .input-group input,
@@ -93,6 +96,8 @@ textarea {
   padding: 8px;
   border: 1px solid #d1d5db;
   border-radius: 6px;
+  background: #fff;
+  color: #000;
 }
 
 textarea {
@@ -192,9 +197,81 @@ textarea {
 .dashboard-title {
   margin: 0;
   font-size: 24px;
+  color: #000;
 }
 
 .dashboard-subtitle {
   margin: 5px 0 0 0;
-  color: #6b7280; /* gray-500 */
+  color: #6b7280;
+}
+
+/* ---------------------- */
+/*      DARK MODE         */
+/* ---------------------- */
+.dark-theme h2,
+.dark-theme .dashboard-title,
+.dark-theme .input-group label,
+.dark-theme .personal-info h3 {
+  color: #ffffff;
+}
+
+.dark-theme .section {
+  background: #111 !important;
+  color: #ffffff;
+}
+
+.dark-theme .input-group input,
+.dark-theme .input-group select,
+.dark-theme textarea {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.dark-theme .photo-placeholder {
+  background: #2a2a2a;
+}
+
+.dark-theme .subtitle,
+.dark-theme .dashboard-subtitle {
+  color: #6b7280 !important; /* keep gray */
+}
+.dark-theme .skill-tag .level {
+  color: none !important; /* keep gray */
+  background-color: none;
+}
+
+.dark-theme .save-btn {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.dark-theme .save-btn:hover {
+  background-color: #2f65d9;
+}
+
+.skill-tag button {
+  background: none;
+  border: none;
+  margin-left: 5px;
+  cursor: pointer;
+  color: #f87171;
+  font-size: 14px;
+  line-height: 1;
+  padding: 0;
+}
+
+/* Ensure dark mode doesn't override it */
+.dark-theme .skill-tag button {
+  background: none !important;
+  color: #f87171 !important;
+}
+
+/* DARK MODE: Make all text inside the React (Expert) skill tag black */
+.dark-theme .skill-tag {
+  color: #000 !important;
+}
+
+.dark-theme .skill-tag.expert .level {
+  color: #6b7280 !important; /* (Expert) text — grey */
 }

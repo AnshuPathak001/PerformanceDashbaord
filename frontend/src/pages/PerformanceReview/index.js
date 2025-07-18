@@ -136,6 +136,7 @@ export default function PerformanceReview() {
               onChange={handleSliderChange(setOpenAir)}
               min={0}
               max={100}
+              className="custom-slider"
               sx={{ mt: 1 }}
             />
           </div>
@@ -150,6 +151,7 @@ export default function PerformanceReview() {
               onChange={handleSliderChange(setJira)}
               min={0}
               max={100}
+              className="custom-slider"
               sx={{ mt: 1 }}
             />
           </div>
@@ -164,6 +166,7 @@ export default function PerformanceReview() {
               onChange={handleSliderChange(setGit)}
               min={0}
               max={100}
+              className="custom-slider"
               sx={{ mt: 1 }}
             />
           </div>

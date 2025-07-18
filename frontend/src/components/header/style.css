@@ -158,3 +158,37 @@
 .modal-buttons button:last-child:hover {
   background-color: #0f6ec2;
 }
+ 
+.theme-toggle-button {
+  margin-left: auto;
+  margin-right: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: inherit;
+}
+
+.theme-toggle-button:hover {
+  opacity: 0.8;
+}
+/* Default (light mode) */
+body, .app-container {
+  background-color: #ffffff;
+  color: #000;
+}
+
+/* Dark mode */
+.dark-theme body,
+.dark-theme .app-container {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.dark-theme .header-container,
+.dark-theme .sidebar,
+.dark-theme .main-content {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+

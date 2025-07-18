@@ -13,7 +13,7 @@
 }
 
 .year-select {
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
   border-radius: 6px;
   border: 1px solid #ddd;
 }
@@ -32,6 +32,15 @@
   background-color: #2d7acb;
 }
 
+.dark-theme .generate-button {
+  background-color: #1884f0;
+  color: white;
+}
+
+.dark-theme .generate-button:hover {
+  background-color: #2d7acb;
+}
+
 .progress-bar-container {
   width: 150px;
   margin: 20px auto;
@@ -40,21 +49,21 @@
 
 .progress-card {
   width: 100%;
-  background-color: white; /* or any light background */
+  background-color: white;
   border: 1px solid #ddd;
   border-radius: 10px;
   padding: 20px;
   box-sizing: border-box;
   display: flex;
-  justify-content: center; /* center the circle horizontally */
-  align-items: center; /* center vertically if needed */
+  justify-content: center;
+  align-items: center;
   margin-bottom: 30px;
 }
 
 .performance-cards-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px; /* spacing between cards */
+  gap: 20px;
 }
 
 .weightage-card {
@@ -84,13 +93,13 @@
 
 .slider-row {
   display: flex;
-  gap: 20px; /* space between blocks */
-  flex-wrap: wrap; /* allow wrap on small screens */
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .slider-block {
-  flex: 1; /* each block takes equal width */
-  min-width: 200px; /* control minimum width */
+  flex: 1;
+  min-width: 200px;
 }
 
 .slider-header {
@@ -99,12 +108,70 @@
   align-items: center;
 }
 
-.slider-label {
+.slider-label,
+.slider-value {
   font-size: 14px;
   color: #333;
 }
 
-.slider-value {
-  font-size: 14px;
-  color: #333;
+/* ========================== */
+/* 🌙 Dark Mode Styles */
+/* ========================== */
+.dark-theme .progress-card,
+.dark-theme .weightage-card {
+  background-color: #111 !important;
+  border: 1px solid #333 !important;
+}
+
+.dark-theme .weightage-title,
+.dark-theme .slider-label,
+.dark-theme .slider-value {
+  color: white !important;
+}
+
+.dark-theme .year-select {
+  background-color: #222;
+  color: white;
+  border: 1px solid #444;
+}
+
+.dark-theme .performance-header,
+.dark-theme .year-controls,
+.dark-theme .slider-row,
+.dark-theme .slider-header {
+  color: white;
+}
+
+.score-card {
+  background-color: white;
+  color: #111;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  width: 220px;
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: dark) {
+  .score-card {
+    background-color: #000; /* Black background in dark mode */
+    color: white; /* White text in dark mode */
+    border: 1px solid #222; /* Optional: subtle border */
+  }
+
+  .score-card .grey-text {
+    color: #888 !important; /* Preserve grey text */
+  }
+}
+
+.custom-slider .MuiSlider-thumb {
+  background-color: #3498db;
+}
+ 
+.custom-slider .MuiSlider-track {
+  background-color: #3498db;
+}
+ 
+.custom-slider .MuiSlider-rail {
+  background-color: rgb(110, 160, 240); /* optional */
 }

@@ -1,13 +1,21 @@
-import { FaClock, FaCheckCircle, FaSyncAlt, FaCog } from "react-icons/fa";
+import { FaClock, FaCheckCircle, FaSyncAlt, FaCog, FaPlus } from "react-icons/fa";
 import "./style.css";
 
 export default function Integrations() {
   return (
     <div className="integrations-container">
-      <h1 className="page-title">System Integrations</h1>
-      <p className="page-description">
-        Connect your tools to automatically track performance data
-      </p>
+      {/* Header with title and button */}
+      <div className="integration-header">
+        <div>
+          <h1 className="page-title">System Integrations</h1>
+          <p className="page-description">
+            Connect your tools to automatically track performance data
+          </p>
+        </div>
+        <button className="add-integration-button">
+          <FaPlus /> Add Integration
+        </button>
+      </div>
 
       {/* Connection Status */}
       <div className="status-container">
@@ -143,7 +151,7 @@ export default function Integrations() {
             </div>
           </div>
         </div>
+      </div>
     </div>
-</div>
   );
 }
