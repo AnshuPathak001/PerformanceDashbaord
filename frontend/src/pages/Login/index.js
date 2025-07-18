@@ -1,30 +1,29 @@
-import React, { useState, useEffect  } from "react";
+import React, { useState, useEffect } from "react";
 import "./style.css";
-import axios from 'axios';
-   
+import axios from "axios";
+
 export default function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [flag, setFlag] = useState(true);
+  const [flag, setFlag] = useState(false);
 
   useEffect(() => {
-    console.log('flag changed:', flag);
+    console.log("flag changed:", flag);
     onLogin(flag);
   }, [flag]);
 
-const handleLogin = (e) => {
-  //  const res = axios.get('http://localhost:5000/users/' + email)   
-  //  .then(res =>
-  //   {
-  //     if(res.data.password == password)
-  //     {
-  //       console.error("password matched")
-  //       setFlag(true);
-  //     }
-  //   })
-  //   .catch(err => console.error(err));
-}
+  const handleLogin = (e) => {
+    const res = axios
+      .get("http://localhost:5000/users/" + email)
+      .then((res) => {
+        if (res.data.password == password) {
+          console.error("password matched");
+          setFlag(true);
+        }
+      })
+      .catch((err) => console.error(err));
+  };
 
   return (
     <div className="login-page">
@@ -70,7 +69,7 @@ const handleLogin = (e) => {
             Sign In
           </button>
           <p className="signup-text">
-            Don't have an account? <a >Sign up</a>
+            Don't have an account? <a>Sign up</a>
           </p>
         </div>
       </div>
