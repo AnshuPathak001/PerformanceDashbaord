@@ -17,7 +17,7 @@ class OpenAirLoginPage:
         self.MFA_CODE_SELECTOR =  "#validEntropyNumber"
 
     async def goto(self):
-        print("🌐 Navigating to OpenAir SSO page...")
+        # print("🌐 Navigating to OpenAir SSO page...")
         await self.page.goto(self.SSO_URL)
         await self.page.wait_for_load_state("domcontentloaded")
 

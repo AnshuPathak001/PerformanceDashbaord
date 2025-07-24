@@ -119,7 +119,7 @@ app.post('/openair/fill-timesheet-stream', async (req, res) => {
         pythonProcess.stderr.setEncoding('utf8');
         
         pythonProcess.stdout.on('data', (data) => {
-            console.log(`📥 DEBUG: Raw Python stdout: "${data}"`);
+            // console.log(`📥 DEBUG: Raw Python stdout: "${data}"`);
             
             if (!isConnectionActive) {
                 console.log('⚠️ DEBUG: Connection inactive, but processing anyway for debugging');
@@ -132,7 +132,7 @@ app.post('/openair/fill-timesheet-stream', async (req, res) => {
                 const trimmedLine = line.trim();
                 if (trimmedLine && !trimmedLine.startsWith('📨 DEBUG:') && !trimmedLine.startsWith('🔍 DEBUG:') && !trimmedLine.startsWith('✅ DEBUG:')) {
                     lineCount++;
-                    console.log(`📥 Processing line: "${trimmedLine}"`);
+                    // console.log(`📥 Processing line: "${trimmedLine}"`);
                     sendSSE(trimmedLine);
                 }
             });
@@ -150,8 +150,8 @@ app.post('/openair/fill-timesheet-stream', async (req, res) => {
             console.log(`🏁 Python process finished: code=${code}, signal=${signal}, lines processed=${lineCount}`);
             
             if (code === 0) {
-                sendSSE('✅ Automation completed successfully!');
-                sendSSE(`📊 Total messages streamed: ${lineCount}`);
+                // sendSSE('✅ Automation completed successfully!');
+                // sendSSE(`📊 Total messages streamed: ${lineCount}`);
             } else {
                 sendSSE(`❌ Process ended with code: ${code}`);
             }

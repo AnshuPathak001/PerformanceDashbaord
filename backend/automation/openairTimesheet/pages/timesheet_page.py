@@ -18,7 +18,7 @@ class TimesheetPage:
     async def open_latest_timesheet(self):
         print("🔍 Checking available timesheets...")
         # Format today’s date
-        today = datetime.today()#datetime(2025, 8, 5) #
+        today = datetime(2025, 8, 5) #datetime.today()#
         today_str = today.strftime("%d-%m-%y")  # Format: 10-07-25
 
         # hardcoded_date = datetime(2025, 8, 5)
@@ -30,12 +30,12 @@ class TimesheetPage:
         # Grab all timesheet link elements
         locator = self.page.get_by_role("link", name=re.compile(r"\d{2}-\d{2}-\d{2} to \d{2}-\d{2}-\d{2}"))
         count = await locator.count()
-        print(f"🧾 Found {count} timesheet links.")
+        # print(f"🧾 Found {count} timesheet links.")
     
         # Loop over each link and check if current date is within any of the ranges
         for i in range(count):
             text = await locator.nth(i).inner_text()
-            print(f"Checking: {text}")
+            # print(f"Checking: {text}")
     
             match = re.match(r"(\d{2}-\d{2}-\d{2}) to (\d{2}-\d{2}-\d{2})", text)
             if match:
@@ -44,7 +44,7 @@ class TimesheetPage:
                 end_date = datetime.strptime(end_str, "%d-%m-%y")
     
                 if start_date <= today <= end_date:  #if start_date <= hardcoded_date <= end_date:
-                    print(f"✅ Current date {today_str} is within range: {start_str} to {end_str}")
+                    # print(f"✅ Current date {today_str} is within range: {start_str} to {end_str}")
                     await locator.nth(i).click()
                     return  # Successfully clicked, exit function
     
@@ -53,7 +53,7 @@ class TimesheetPage:
         raise Exception("No current timesheet found")
 
     async def delete_all_rows(self):
-        print("🧹 Checking for deletable timesheet rows...")
+        # print("🧹 Checking for deletable timesheet rows...")
         # yield "🧹 Checking for deletable timesheet rows..."
         deleted_count = 0
         while True:
@@ -73,7 +73,7 @@ class TimesheetPage:
                     print("✅ No more deletable rows found.")
                     # yield "✅ No more deletable rows found."
                     break
-                print(f"📊 Found {visible_count} deletable rows")
+                # print(f"📊 Found {visible_count} deletable rows")
                 # yield f"📊 Found {visible_count} deletable rows"
                 # Always click the first visible delete icon
                 delete_button = await self.page.wait_for_selector("a[aria-label='Delete row']:visible", timeout=10000)
@@ -82,20 +82,20 @@ class TimesheetPage:
                 confirm_button = await self.page.wait_for_selector("text=Delete", timeout=10000)
                 await confirm_button.click()
                 deleted_count += 1
-                print(f"🗑️ Deleted row {deleted_count}")
+                # print(f"🗑️ Deleted row {deleted_count}")
                 yield f"🗑️ Removing incomplete & unfilled row {deleted_count}"
                 # Wait for deletion to complete
                 await asyncio.sleep(4)
             except Exception as e:
-                print(f"⚠️ Error during deletion: {e}")
+                # print(f"⚠️ Error during deletion: {e}")
                 # yield f"⚠️ Error during deletion: {e}"
                 break
-        print(f"🎉 Deletion completed. Total deleted: {deleted_count}")
+        # print(f"🎉 Deletion completed. Total deleted: {deleted_count}")
         # yield f"🎉 Deletion completed. Total deleted: {deleted_count}"
         # Save the timesheet
         try:
             await self.save_timesheet()
-            print("💾 Saved after deletion.")
+            # print("💾 Saved after deletion.")
             yield "💾 Timesheet saved after deletion."
         except Exception as e:
             print(f"⚠️ Save failed after deletion: {e}")
@@ -112,7 +112,7 @@ class TimesheetPage:
         await self.page.wait_for_timeout(2000)
 
     async def get_all_project_task_options(self):
-        print("\n📊 Extracting all available Project and Task combinations...")
+        # print("\n📊 Extracting all available Project and Task combinations...")
 
         available_options = {}
         await self.page.wait_for_selector("select[aria-label='Select Client : Project']", timeout=20000)
@@ -150,7 +150,7 @@ class TimesheetPage:
 
                 available_options[project_text] = tasks
 
-        print("\n Project-Task options captured successfully.")
+        # print("\n Project-Task options captured successfully.")
         return available_options
 
     async def fill_multiple_timesheets(self, timesheet_entries: list):
@@ -164,30 +164,30 @@ class TimesheetPage:
     async def fill_rows(self, timesheet_entries: list):
         available = await self.get_all_project_task_options()
 
-        print("\n📦 Available Project → Tasks mapping:")
-        pprint.pprint(available)
+        # print("\n📦 Available Project → Tasks mapping:")
+        # pprint.pprint(available)
 
         weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
 
         for i, entry in enumerate(timesheet_entries):
-            print(f"\n🔄 Row {i + 1}:")
+            # print(f"\n🔄 Row {i + 1}:")
             project = entry["project_label"]
             task = entry["task_label"]
             note = entry.get("notes", "")
 
-            print(f"   📁 Project: {project}")
-            print(f"   🔧 Task: {task}")
+            # print(f"   📁 Project: {project}")
+            # print(f"   🔧 Task: {task}")
 
             dropdown = self.page.locator("select[aria-label='Select Client : Project']").nth(i)
             await dropdown.wait_for(state="visible", timeout=10000)
             await dropdown.select_option(label=project)
-            print(f"   Project selected.")
+            # print(f"   Project selected.")
 
             task_dropdown = self.page.locator("select[aria-label='Select Task']").nth(i)
             await task_dropdown.wait_for(state="visible", timeout=10000)
 
             if task.lower() == "default":
-                print("   Using default task fallback...")
+                # print("   Using default task fallback...")
                 options = task_dropdown.locator("option")
                 option_count = await options.count()
                 for j in range(1, option_count):
@@ -195,18 +195,18 @@ class TimesheetPage:
                     task_text = (await options.nth(j).inner_text()).strip()
                     if task_value and task_value != "0":
                         await task_dropdown.select_option(value=task_value)
-                        print(f"   Fallback task selected: {task_text}")
+                        # print(f"   Fallback task selected: {task_text}")
                         break
             else:
                 await task_dropdown.select_option(label=task)
-                print(f"   Task selected: {task}")
+                # print(f"   Task selected: {task}")
 
             for day in weekdays:
                 value = str(entry["custom_hours"].get(day, "0"))
                 label_regex = re.compile(f"^Number of hours for {day}")
                 try:
                     await self.page.get_by_label(label_regex).nth(i).fill(value)
-                    print(f"   {day}: {value} hrs")
+                    # print(f"   {day}: {value} hrs")
                 except Exception as e:
                     print(f"   Couldn’t fill hours for {day}: {e}")
 
@@ -216,11 +216,11 @@ class TimesheetPage:
                     await cell.get_by_label(re.compile("Additional time entry")).nth(0).click()
                     await self.page.locator("#tm_notes").fill(note)
                     await self.page.get_by_role("button", name="OK", exact=True).click()
-                    print(f"   📝 Note added for {day}")
+                    # print(f"   📝 Note added for {day}")
                 except Exception as e:
                     print(f"   ⚠️ Couldn’t add note for {day}: {e}")
 
-            print(f"Row {i + 1} completed.\n")
+            # print(f"Row {i + 1} completed.\n")
 
             if i + 1 < len(timesheet_entries):
                 print(f"⏳ Waiting for row {i + 2} to appear...")

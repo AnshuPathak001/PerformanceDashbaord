@@ -123,8 +123,8 @@ export default function OpenAirAutomationBox() {
                 setTwoFACode(code);
                 setStatus(prev => prev + `\n🔐 2FA Code: ${code}`);
               } else if (message === "DONE") {
-                setStatus(prev => prev + `\n🎉 Automation finished successfully!`);
-                setStatus(prev => prev + `\n📋 Total messages received: ${messageCount}`);
+                // setStatus(prev => prev + `\n🎉 Automation finished successfully!`);
+                // setStatus(prev => prev + `\n📋 Total messages received: ${messageCount}`);
                 console.log("🏁 Automation completed");
                 setLoader(false);
                 setConnectionStatus("completed");
