@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaChevronDown, FaUser } from "react-icons/fa";
 import { BsSunFill, BsMoonFill } from "react-icons/bs";
@@ -7,7 +7,25 @@ import "./style.css";
 export default function Header({ dark, toggleTheme }) {
   const [showMenu, setShowMenu] = useState(false);
   const [showLogoutModal, setShowLogoutModal] = useState(false);
+  const [username, setUsername] = useState("");
+
   const navigate = useNavigate();
+
+  // Capitalize each word
+  const formatName = (name) => {
+    if (!name) return "";
+    return name
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+  };
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser && storedUser.name) {
+      setUsername(formatName(storedUser.name));
+    }
+  }, []);
 
   const handleToggleMenu = () => setShowMenu(!showMenu);
   const handleViewProfile = () => {
@@ -39,7 +57,7 @@ export default function Header({ dark, toggleTheme }) {
           </div>
           <div className="profile-info">
             <div className="profile-texts">
-              <span className="profile-name">Anshu Pathak</span>
+              <span className="profile-name">{username || "User"}</span>
               <span className="profile-role">Software Engineer</span>
             </div>
             <FaChevronDown className="profile-chevron" />
@@ -54,6 +72,7 @@ export default function Header({ dark, toggleTheme }) {
         </div>
       </div>
 
+      {/* Logout Modal */}
       {showLogoutModal && (
         <div className="modal-overlay">
           <div className="modal-content">
