@@ -1,7 +1,15 @@
 import { FaClock, FaCheckCircle, FaSyncAlt, FaCog, FaPlus } from "react-icons/fa";
 import "./style.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Integrations() {
+
+    const navigate = useNavigate(); // ✅ initialize navigate
+
+  const goToGitHubDetails = () => {
+    navigate("/github-details"); // ✅ programmatic navigation
+  };
+
   return (
     <div className="integrations-container">
       {/* Header with title and button */}
@@ -115,7 +123,7 @@ export default function Integrations() {
         </div>
 
         {/* Git Repository */}
-        <div className="tool-card">
+        <div className="tool-card" onClick={goToGitHubDetails} style={{ cursor: "pointer" }}>
           <div className="tool-header">
             <div className="tool-icon green-bg">
               <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
