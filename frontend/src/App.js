@@ -26,7 +26,9 @@ function App() {
   // Detect and apply saved/system theme
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const prefersDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
     const isDark = savedTheme === "dark" || (!savedTheme && prefersDark);
     setDark(isDark);
     document.documentElement.classList.toggle("dark-theme", isDark);
@@ -46,14 +48,18 @@ function App() {
 
   if (!isLoggedIn) {
     return (
-      <SessionProvider> {/* Wrap Login component too */}
+      <SessionProvider>
+        {" "}
+        {/* Wrap Login component too */}
         <Login onLogin={handleLogin} dark={dark} toggleTheme={toggleTheme} />
       </SessionProvider>
     );
   }
 
   return (
-    <SessionProvider> {/* Wrap the entire Router */}
+    <SessionProvider>
+      {" "}
+      {/* Wrap the entire Router */}
       <Router>
         <div className="app-container">
           <Sidebar dark={dark} toggleTheme={toggleTheme} />
@@ -65,10 +71,13 @@ function App() {
                 <Route path="/profile" element={<EmployeeProfile />} />
                 <Route path="/logtimesheet" element={<LogTimesheet />} />
                 <Route path="/integrations" element={<Integrations />} />
-                <Route path="/performancereview" element={<PerformanceReview />} />
+                <Route
+                  path="/performancereview"
+                  element={<PerformanceReview />}
+                />
                 <Route path="/setting" element={<Setting />} />
                 <Route path="*" element={<Navigate to="/" />} />
-                        <Route path="/github-details" element={<GithubDetails />} />
+                <Route path="/github-details" element={<GithubDetails />} />
               </Routes>
             </div>
           </div>
@@ -79,9 +88,6 @@ function App() {
 }
 
 export default App;
-
-
-
 
 // import {
 //   BrowserRouter as Router,

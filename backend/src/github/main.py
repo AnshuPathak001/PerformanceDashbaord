@@ -25,7 +25,11 @@ class QueryRequest(BaseModel):
 
 @app.post("/ask")
 async def ask_question(req: QueryRequest):
-    client = MCPClient.from_config_file("github_mcp.json")
+
+    base_dir = os.path.dirname(__file__)  # This will be src/github/
+    config_path = os.path.join(base_dir, "github_mcp.json")
+    client = MCPClient.from_config_file(config_path)
+
     llm = ChatOpenAI(model="gpt-4o")
     agent = MCPAgent(llm=llm, client=client, max_steps=30)
 

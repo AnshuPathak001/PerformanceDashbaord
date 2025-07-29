@@ -1,13 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa"; 
+import { FaArrowLeft } from "react-icons/fa";
 import PullRequestCards from "../../components/pullRequestCard";
 
 const GithubDetails = () => {
   const navigate = useNavigate();
 
   const goBack = () => {
-    navigate("/integrations"); 
+    navigate("/integrations");
   };
 
   return (
