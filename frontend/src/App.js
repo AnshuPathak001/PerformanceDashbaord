@@ -16,8 +16,8 @@ import PerformanceReview from "./pages/PerformanceReview";
 import EmployeeProfile from "./pages/MyProfile";
 import Integrations from "./pages/Integrations";
 import Login from "./pages/Login";
-
 import "./App.css";
+import GithubDetails from "./pages/GithubDetails";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -68,6 +68,7 @@ function App() {
                 <Route path="/performancereview" element={<PerformanceReview />} />
                 <Route path="/setting" element={<Setting />} />
                 <Route path="*" element={<Navigate to="/" />} />
+                        <Route path="/github-details" element={<GithubDetails />} />
               </Routes>
             </div>
           </div>
