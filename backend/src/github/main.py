@@ -25,7 +25,8 @@ class QueryRequest(BaseModel):
 
 @app.post("/ask")
 async def ask_question(req: QueryRequest):
-    client = MCPClient.from_config_file("github_mcp.json")
+    # client = MCPClient.from_config_file("github_mcp.json")
+    client = MCPClient.from_config_file("src/github/github_mcp.json")
     llm = ChatOpenAI(model="gpt-4o")
     agent = MCPAgent(llm=llm, client=client, max_steps=30)
 
