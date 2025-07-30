@@ -167,11 +167,15 @@
 .custom-slider .MuiSlider-thumb {
   background-color: #3498db;
 }
- 
+
 .custom-slider .MuiSlider-track {
   background-color: #3498db;
 }
- 
+
 .custom-slider .MuiSlider-rail {
   background-color: rgb(110, 160, 240); /* optional */
+}
+
+#pdf-report {
+  background-color: #fff;
 }
