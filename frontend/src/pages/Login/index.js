@@ -9,9 +9,8 @@ export default function Login({ onLogin }) {
   const [flag, setFlag] = useState(false);
 
   useEffect(() => {
-    console.log("flag changed:", flag);
     if (flag) {
-      onLogin(true); // notify parent on successful login
+      onLogin(true); // Notify parent on successful login
     }
   }, [flag, onLogin]);
 
@@ -19,21 +18,32 @@ export default function Login({ onLogin }) {
     e.preventDefault();
 
     try {
-      const res = await axios.get("http://localhost:5000/users/" + email);
+      // Step 1: Fetch the user attempting login
+      const res = await axios.get(`http://localhost:5000/users/${email}`);
+      const loggedUser = res.data;
 
-      if (res.data && res.data.password === password) {
+      if (loggedUser && loggedUser.password === password) {
         console.log("✅ Password matched");
 
+        // Step 2: Store current user in localStorage
         const userData = {
-          name: res.data.userName || "Default Name",
-          email: res.data.email,
-          timezone: res.data.timezone || "Indian Standard Time (IST)",
-          language: res.data.language || "English (US)",
+          name: loggedUser.userName || "Default Name",
+          email: loggedUser.email,
+          timezone: loggedUser.timezone || "Indian Standard Time (IST)",
+          language: loggedUser.language || "English (US)",
+          employeeId: loggedUser.employeeID || "EMP-0000",
+          department: loggedUser.department || "Engineering",
+          joinDate: loggedUser.joiningDate || "2022-01-01",
+          manager: loggedUser.directManager || "John Smith",
+          role: loggedUser.designation || "Software Engineer",
         };
-
         localStorage.setItem("user", JSON.stringify(userData));
 
-        setFlag(true);
+        // Step 3: Fetch and store all users list
+        const allUsersRes = await axios.get("http://localhost:5000/users");
+        localStorage.setItem("allUsers", JSON.stringify(allUsersRes.data));
+
+        setFlag(true); // trigger redirect or parent change
       } else {
         alert("❌ Incorrect password.");
       }
