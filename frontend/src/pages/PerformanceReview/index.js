@@ -2,7 +2,6 @@ import { useState } from "react";
 import Card from "../../components/card";
 import { FaStar, FaClock, FaBolt, FaCode, FaCog } from "react-icons/fa";
 import "./style.css";
-// import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import Slider from "@mui/material/Slider";
 import ScoreCard from "../../components/performanceScoreCard";
@@ -13,28 +12,58 @@ import {
 
 export default function PerformanceReview() {
   const [year, setYear] = useState("2024");
-  const score = 75; // Example score
-  const [openAir, setOpenAir] = useState(30);
+  const [openAir, setOpenAir] = useState(25);
   const [jira, setJira] = useState(40);
-  const [git, setGit] = useState(28);
+  const [git, setGit] = useState(35);
 
   const total = openAir + jira + git;
 
+  // Retained for future dynamic slider logic
   const handleSliderChange = (setter) => (_, newValue) => {
     setter(newValue);
   };
 
+  // Metric scores
+  const openAirScore = 85;
+  const jiraScore = 92;
+  const gitScore = 88;
+
+  // Normalize weights
+  const weightsSum = openAir + jira + git || 1;
+  const normOpenAirWeight = openAir / weightsSum;
+  const normJiraWeight = jira / weightsSum;
+  const normGitWeight = git / weightsSum;
+
+  // AI-like tiered evaluation
+  const categorizeScore = (score) => {
+    if (score >= 90) return 1.0;
+    if (score >= 75) return 0.8;
+    if (score >= 60) return 0.6;
+    return 0.4;
+  };
+
+  // Normalize 0–1 range to 0–100 scale
+  const normalize = (val, min, max) => ((val - min) / (max - min)) * 100;
+
+  // Final AI-style performance score
+  const aiScore =
+    categorizeScore(openAirScore) * normOpenAirWeight +
+    categorizeScore(jiraScore) * normJiraWeight +
+    categorizeScore(gitScore) * normGitWeight;
+
+  const score = Math.round(normalize(aiScore, 0.4, 1.0));
+
   const cardData = [
     {
-      score: "85",
+      score: openAirScore,
       label: "Billable Hours",
       icon: FaClock,
       color: "#2ecc71",
       weight: openAir,
-      contributionPoints: Math.round((openAir / 100) * 25), // example logic
+      contributionPoints: Math.round((openAir / 100) * 25),
     },
     {
-      score: "92",
+      score: jiraScore,
       label: "Jira Velocity",
       icon: FaBolt,
       color: "#3498db",
@@ -42,7 +71,7 @@ export default function PerformanceReview() {
       contributionPoints: Math.round((jira / 100) * 25),
     },
     {
-      score: "88",
+      score: gitScore,
       label: "Git Activity",
       icon: FaCode,
       color: "#e67e22",
@@ -79,7 +108,14 @@ export default function PerformanceReview() {
           <CircularProgressbarWithChildren
             value={score}
             styles={buildStyles({
-              pathColor: "#1884f0",
+              pathColor:
+                score >= 70
+                  ? "#27ae60" // Green
+                  : score >= 60
+                  ? "#2980b9" // Blue
+                  : score >= 40
+                  ? "#f39c12" // Orange
+                  : "#e74c3c", // Red
               trailColor: "#eee",
             })}
           >
@@ -87,9 +123,22 @@ export default function PerformanceReview() {
               <div style={{ fontSize: 24, fontWeight: "bold", color: "#111" }}>
                 {score}
               </div>
-              <div style={{ fontSize: 14, color: "#555" }}>Overall Score</div>
-              <div style={{ fontSize: 14, color: "green", fontWeight: "bold" }}>
-                Excellent
+              <div style={{ fontSize: 12, color: "#555" }}>Overall Score</div>
+              <div
+                style={{
+                  fontSize: 10,
+                  color: "green",
+                  fontWeight: "bold",
+                  marginTop: 5,
+                }}
+              >
+                {score >= 90
+                  ? "Outstanding"
+                  : score >= 75
+                  ? "Excellent"
+                  : score >= 60
+                  ? "Good"
+                  : "Needs Improvement"}
               </div>
             </div>
           </CircularProgressbarWithChildren>
@@ -138,6 +187,7 @@ export default function PerformanceReview() {
               max={100}
               className="custom-slider"
               sx={{ mt: 1 }}
+              disabled
             />
           </div>
 
@@ -153,6 +203,7 @@ export default function PerformanceReview() {
               max={100}
               className="custom-slider"
               sx={{ mt: 1 }}
+              disabled
             />
           </div>
 
@@ -168,6 +219,7 @@ export default function PerformanceReview() {
               max={100}
               className="custom-slider"
               sx={{ mt: 1 }}
+              disabled
             />
           </div>
         </div>
