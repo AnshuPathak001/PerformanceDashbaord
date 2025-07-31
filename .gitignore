@@ -23,3 +23,7 @@ package-lock.json
 
 # Visual Studio Code workspace folder
 .vs/
+
+# Ignore Python cache and compiled files
+__pycache__/
+*.py[cod]
