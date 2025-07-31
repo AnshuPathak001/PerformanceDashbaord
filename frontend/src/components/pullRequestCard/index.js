@@ -3,31 +3,29 @@ import axios from "axios";
 import ReactMarkdown from "react-markdown";
 import "./style.css";
 
-const PullRequestCards = () => {
+const PullRequestCards = ({ username, token }) => {
   const [response, setResponse] = useState("");
-  const [loading, setLoading] = useState(true); // loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      fetchData();
-    }, 2000);
-
-    return () => clearTimeout(timer);
-  }, []);
+    fetchData();
+  }, [username, token]);
 
   const fetchData = async () => {
     try {
-      setLoading(true); // show loader
-      const res = await axios.post("http://localhost:8000/ask", {
-        query:
-          "List all the open and closed pull requests created by user 'ashu14' across all repositories they own",
-      });
+      setLoading(true);
+      const payload = {
+        query: `List all the open and closed pull requests created by user '${username}' across all repositories they own.`,
+        token: token || "", // Optional
+      };
+
+      const res = await axios.post("http://localhost:8000/ask", payload);
       setResponse(res.data.result);
     } catch (err) {
       console.error("Error:", err);
       setResponse("Something went wrong.");
     } finally {
-      setLoading(false); // hide loader
+      setLoading(false);
     }
   };
 

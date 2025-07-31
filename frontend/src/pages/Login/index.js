@@ -6,7 +6,7 @@ export default function Login({ onLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
-  const [flag, setFlag] = useState(false);
+  const [flag, setFlag] = useState(true);
 
   useEffect(() => {
     if (flag) {
