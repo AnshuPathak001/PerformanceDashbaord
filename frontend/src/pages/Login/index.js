@@ -3,10 +3,10 @@ import "./style.css";
 import axios from "axios";
 
 export default function Login({ onLogin }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("pankaj.gandhi@valtech.com");
+  const [password, setPassword] = useState("pankaj12345");
   const [rememberMe, setRememberMe] = useState(false);
-  const [flag, setFlag] = useState(true);
+  const [flag, setFlag] = useState(false);
 
   useEffect(() => {
     if (flag) {
