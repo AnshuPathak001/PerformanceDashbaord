@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "github-mcp": "cmd /c \"cd backend && venv\\Scripts\\activate && uvicorn src.github.main:app --reload\"",
+    "github-mcp": "cmd /c \"cd backend && venv\\Scripts\\activate && uvicorn src.github.main:app --reload --host 0.0.0.0\"",
     "backend": "cd backend && npm install && node index.js",
     "frontend": "cd frontend && npm install && npm start",
     "start": "concurrently \"npm run github-mcp\" \"npm run backend\" \"npm run frontend\""
