@@ -53,3 +53,23 @@
   color: #6b7280;
   margin-top: 4px;
 }
+
+.dark-theme .card-container {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #333;
+}
+
+.dark-theme .card-title {
+  margin-top: 12px;
+  font-weight: 600;
+  color: white;
+  font-size: 14px;
+}
+
+.dark-theme .card-score {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  margin-top: 4px;
+}
