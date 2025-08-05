@@ -57,6 +57,10 @@ pip install -r requirements.txt
 
 uvicorn src.github.main:app --reload
 
+# If github mcp server doesn't run then run below cmd and pass hardcoded ip address in PullRequestCard file inside frontend/src/components/pullRequestcard/index.js line no - 26
+
+uvicorn src.github.main:app --reload --host 0.0.0.0
+
 ## For frontend:
 
 goto frontend folder
