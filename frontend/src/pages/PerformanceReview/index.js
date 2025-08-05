@@ -131,12 +131,12 @@ export default function PerformanceReview() {
       {/* Performance Overview PDF Content */}
       <div
         id="pdf-report"
-        style={{ padding: "20px 40px", backgroundColor: "#fff" }}
+        style={{ padding: "20px 40px"}}
       >
         {/* Greeting */}
         <div style={{ marginBottom: 20 }}>
           <h2 style={{ margin: 0, fontWeight: 600 }}>Hi {username},</h2>
-          <p style={{ marginTop: 5, fontSize: 14, color: "#333" }}>
+          <p style={{ marginTop: 5, fontSize: 14}}>
             Here's your performance report for the year {year}. This summary
             includes a breakdown of your productivity across OpenAir, Jira, and
             GitHub.
@@ -155,7 +155,7 @@ export default function PerformanceReview() {
             >
               <div style={{ textAlign: "center" }}>
                 <div
-                  style={{ fontSize: 24, fontWeight: "bold", color: "#111" }}
+                  style={{ fontSize: 24, fontWeight: "bold"}}
                 >
                   {score}
                 </div>
@@ -171,13 +171,7 @@ export default function PerformanceReview() {
         </div>
 
         {/* Metric Cards */}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "20px",
-          }}
-        >
+        <div className="cards-container">
           {cardData.map((item, index) => (
             <ScoreCard
               key={index}
@@ -195,7 +189,7 @@ export default function PerformanceReview() {
 
         {/* Performance Summary for PDF */}
         <div
-          style={{ marginTop: 30, padding: "10px", backgroundColor: "#f9f9f9" }}
+          style={{ marginTop: 30, padding: "10px"}}
         >
           <h3>Performance Summary</h3>
           <p>
