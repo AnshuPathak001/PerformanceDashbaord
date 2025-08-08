@@ -20,10 +20,10 @@ const PullRequestCards = ({ username, token }) => {
       };
 
       //with localhost not working now
-      // const res = await axios.post("http://localhost:8000/ask", payload);
+      const res = await axios.post("http://localhost:8001/ask", payload);
 
       //hardcoded ip address is needed to run github mcp api
-      const res = await axios.post("http://192.168.31.24:8000/ask", payload);
+      // const res = await axios.post("http://192.168.31.24:8000/ask", payload);
 
       setResponse(res.data.result);
     } catch (err) {
