@@ -1,10 +1,15 @@
-import { FaClock, FaCheckCircle, FaSyncAlt, FaCog, FaPlus } from "react-icons/fa";
+import {
+  FaClock,
+  FaCheckCircle,
+  FaSyncAlt,
+  FaCog,
+  FaPlus,
+} from "react-icons/fa";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 
 export default function Integrations() {
-
-    const navigate = useNavigate(); // ✅ initialize navigate
+  const navigate = useNavigate(); // ✅ initialize navigate
 
   const goToGitHubDetails = () => {
     navigate("/github-details"); // ✅ programmatic navigation
@@ -58,7 +63,9 @@ export default function Integrations() {
             </div>
             <div className="tool-info">
               <h3 className="tool-name">OpenAir Timesheet</h3>
-              <p className="tool-description">Track billable hours and project time</p>
+              <p className="tool-description">
+                Track billable hours and project time
+              </p>
             </div>
             <div className="tool-status connected">
               <FaCheckCircle /> Connected
@@ -94,7 +101,9 @@ export default function Integrations() {
             </div>
             <div className="tool-info">
               <h3 className="tool-name">Jira Integration</h3>
-              <p className="tool-description">Project management and issue tracking</p>
+              <p className="tool-description">
+                Project management and issue tracking
+              </p>
             </div>
             <div className="tool-status connected">
               <FaCheckCircle /> Connected
@@ -123,11 +132,20 @@ export default function Integrations() {
         </div>
 
         {/* Git Repository */}
-        <div className="tool-card" onClick={goToGitHubDetails} style={{ cursor: "pointer" }}>
+        <div
+          className="tool-card"
+          onClick={goToGitHubDetails}
+          style={{ cursor: "pointer" }}
+        >
           <div className="tool-header">
             <div className="tool-icon green-bg">
-              <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M17.707 9.293l-7-7a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L9 5.414V17a1 1 0 102 0V5.414l5.293 5.293a1 1 0 001.414-1.414z"/>
+              <svg
+                width="20"
+                height="20"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path d="M17.707 9.293l-7-7a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L9 5.414V17a1 1 0 102 0V5.414l5.293 5.293a1 1 0 001.414-1.414z" />
               </svg>
             </div>
             <div className="tool-info">

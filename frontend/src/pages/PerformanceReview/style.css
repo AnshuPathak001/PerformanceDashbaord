@@ -16,6 +16,8 @@
   padding: 10px 20px;
   border-radius: 6px;
   border: 1px solid #ddd;
+  background-color: white;
+  color: #111;
 }
 
 .generate-button {
@@ -32,13 +34,11 @@
   background-color: #2d7acb;
 }
 
-.dark-theme .generate-button {
-  background-color: #1884f0;
-  color: white;
-}
-
-.dark-theme .generate-button:hover {
-  background-color: #2d7acb;
+.cards-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  overflow-x: auto;
 }
 
 .progress-bar-container {
@@ -58,6 +58,7 @@
   justify-content: center;
   align-items: center;
   margin-bottom: 30px;
+  color: #111;
 }
 
 .performance-cards-container {
@@ -72,6 +73,7 @@
   border: 1px solid #ddd;
   padding: 20px;
   margin-top: 30px;
+  color: #111;
 }
 
 .weightage-header {
@@ -115,30 +117,41 @@
 }
 
 /* ========================== */
-/* 🌙 Dark Mode Styles */
+/* 🌙 Dark Theme Styles */
 /* ========================== */
-.dark-theme .progress-card,
-.dark-theme .weightage-card {
-  background-color: #111 !important;
-  border: 1px solid #333 !important;
-}
-
-.dark-theme .weightage-title,
-.dark-theme .slider-label,
-.dark-theme .slider-value {
-  color: white !important;
-}
-
-.dark-theme .year-select {
-  background-color: #222;
-  color: white;
-  border: 1px solid #444;
-}
 
 .dark-theme .performance-header,
 .dark-theme .year-controls,
 .dark-theme .slider-row,
 .dark-theme .slider-header {
+  color: #fff;
+}
+
+.dark-theme .year-select {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #444;
+}
+
+.dark-theme .generate-button {
+  background-color: #1884f0;
+  color: white;
+}
+
+.dark-theme .generate-button:hover {
+  background-color: #2d7acb;
+}
+
+.dark-theme .progress-card,
+.dark-theme .weightage-card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  color: white;
+}
+
+.dark-theme .weightage-title,
+.dark-theme .slider-label,
+.dark-theme .slider-value {
   color: white;
 }
 
@@ -152,26 +165,52 @@
   box-sizing: border-box;
 }
 
+.dark-theme .score-card {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #333;
+}
+
+.dark-theme .card {
+  background-color: #1e1e1e;
+  color: white;
+  border: 1px solid #333;
+}
+
+.dark-theme .score-card .grey-text {
+  color: #888 !important;
+}
+
+/* Optional media query-based fallback */
 @media (prefers-color-scheme: dark) {
   .score-card {
-    background-color: #000; /* Black background in dark mode */
-    color: white; /* White text in dark mode */
-    border: 1px solid #222; /* Optional: subtle border */
+    background-color: #1e1e1e;
+    color: white;
+    border: 1px solid #333;
   }
 
   .score-card .grey-text {
-    color: #888 !important; /* Preserve grey text */
+    color: #888 !important;
   }
 }
 
 .custom-slider .MuiSlider-thumb {
   background-color: #3498db;
 }
- 
+
 .custom-slider .MuiSlider-track {
   background-color: #3498db;
 }
- 
+
 .custom-slider .MuiSlider-rail {
-  background-color: rgb(110, 160, 240); /* optional */
+  background-color: rgb(110, 160, 240);
+}
+
+#pdf-report {
+  background-color: #fff;
+}
+
+.dark-theme #pdf-report {
+  background-color: #1e1e1e;
+  color: white;
 }

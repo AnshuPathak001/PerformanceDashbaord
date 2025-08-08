@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import Card from "../../components/card";
 import { FaStar, FaClock, FaBolt, FaCode, FaCog } from "react-icons/fa";
 import "./style.css";
-// import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import Slider from "@mui/material/Slider";
 import ScoreCard from "../../components/performanceScoreCard";
@@ -11,49 +10,102 @@ import {
   buildStyles,
 } from "react-circular-progressbar";
 
+import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+
 export default function PerformanceReview() {
   const [year, setYear] = useState("2024");
-  const score = 75; // Example score
-  const [openAir, setOpenAir] = useState(30);
+  const [openAir, setOpenAir] = useState(25);
   const [jira, setJira] = useState(40);
-  const [git, setGit] = useState(28);
-
+  const [git, setGit] = useState(35);
+  const [username, setUsername] = useState("");
   const total = openAir + jira + git;
+
+  // Dummy metrics - replace with actual fetched scores
+  const openAirScore = 85;
+  const jiraScore = 92;
+  const gitScore = 88;
+
+  useEffect(() => {
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser && storedUser.name) {
+      setUsername(formatName(storedUser.name));
+    }
+  }, []);
+
+  // Capitalize each word
+  const formatName = (name) => {
+    if (!name) return "";
+    return name
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+  };
+
+  // AI-style score logic
+  const score = useMemo(() => {
+    const normalizedScore =
+      (openAirScore * openAir + jiraScore * jira + gitScore * git) / total;
+    return Math.round(normalizedScore);
+  }, [openAir, jira, git]);
+
+  const getPerformanceRemark = (score) => {
+    if (score >= 90) return "Outstanding";
+    if (score >= 75) return "Excellent";
+    if (score >= 60) return "Good";
+    return "Needs Improvement";
+  };
 
   const handleSliderChange = (setter) => (_, newValue) => {
     setter(newValue);
   };
 
+  const generatePDF = async () => {
+    const element = document.getElementById("pdf-report");
+    if (!element) return;
+
+    const canvas = await html2canvas(element, { scale: 2 });
+    const imgData = canvas.toDataURL("image/png");
+
+    const pdf = new jsPDF("p", "mm", "a4");
+    const imgProps = pdf.getImageProperties(imgData);
+    const pdfWidth = pdf.internal.pageSize.getWidth();
+    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+    pdf.addImage(imgData, "PNG", 0, 0, pdfWidth, pdfHeight);
+    pdf.save(`Performance_Review_${year}.pdf`);
+  };
+
   const cardData = [
     {
-      score: "85",
+      score: openAirScore,
       label: "Billable Hours",
       icon: FaClock,
       color: "#2ecc71",
       weight: openAir,
-      contributionPoints: Math.round((openAir / 100) * 25), // example logic
+      contributionPoints: Math.round((openAirScore / 100) * (openAir || 1)),
     },
     {
-      score: "92",
+      score: jiraScore,
       label: "Jira Velocity",
       icon: FaBolt,
       color: "#3498db",
       weight: jira,
-      contributionPoints: Math.round((jira / 100) * 25),
+      contributionPoints: Math.round((jiraScore / 100) * (jira || 1)),
     },
     {
-      score: "88",
+      score: gitScore,
       label: "Git Activity",
       icon: FaCode,
       color: "#e67e22",
       weight: git,
-      contributionPoints: Math.round((git / 100) * 25),
+      contributionPoints: Math.round((gitScore / 100) * (git || 1)),
     },
   ];
 
   return (
     <div className="dashboard-container">
-      {/* Title and controls */}
+      {/* Header */}
       <div className="performance-header">
         <div>
           <h1 className="dashboard-title">Performance Review</h1>
@@ -70,55 +122,97 @@ export default function PerformanceReview() {
             <option value="2024">2024</option>
             <option value="2025">2025</option>
           </select>
-          <button className="generate-button">Generate Review</button>
+          <button className="generate-button" onClick={generatePDF}>
+            Generate Review
+          </button>
         </div>
       </div>
 
-      <div className="progress-card">
-        <div className="progress-bar-container">
-          <CircularProgressbarWithChildren
-            value={score}
-            styles={buildStyles({
-              pathColor: "#1884f0",
-              trailColor: "#eee",
-            })}
-          >
-            <div style={{ textAlign: "center" }}>
-              <div style={{ fontSize: 24, fontWeight: "bold", color: "#111" }}>
-                {score}
-              </div>
-              <div style={{ fontSize: 14, color: "#555" }}>Overall Score</div>
-              <div style={{ fontSize: 14, color: "green", fontWeight: "bold" }}>
-                Excellent
-              </div>
-            </div>
-          </CircularProgressbarWithChildren>
-        </div>
-      </div>
-
+      {/* Performance Overview PDF Content */}
       <div
-        style={{
-          display: "flex",
-          flexWrap: "wrap",
-          gap: "20px",
-        }}
+        id="pdf-report"
+        style={{ padding: "20px 40px"}}
       >
-        {cardData.map((item, index) => (
-          <ScoreCard
-            key={index}
-            Icon={item.icon}
-            title={item.label}
-            score={item.score}
-            maxScore={100}
-            weight={item.weight}
-            contributionPoints={item.contributionPoints}
-            width="220px"
-            color={item.color}
-          />
-        ))}
+        {/* Greeting */}
+        <div style={{ marginBottom: 20 }}>
+          <h2 style={{ margin: 0, fontWeight: 600 }}>Hi {username},</h2>
+          <p style={{ marginTop: 5, fontSize: 14}}>
+            Here's your performance report for the year {year}. This summary
+            includes a breakdown of your productivity across OpenAir, Jira, and
+            GitHub.
+          </p>
+        </div>
+
+        {/* Circular Overall Score */}
+        <div className="progress-card">
+          <div className="progress-bar-container">
+            <CircularProgressbarWithChildren
+              value={score}
+              styles={buildStyles({
+                pathColor: "#1884f0",
+                trailColor: "#eee",
+              })}
+            >
+              <div style={{ textAlign: "center" }}>
+                <div
+                  style={{ fontSize: 24, fontWeight: "bold"}}
+                >
+                  {score}
+                </div>
+                <div style={{ fontSize: 14, color: "#555" }}>Overall Score</div>
+                <div
+                  style={{ fontSize: 14, color: "green", fontWeight: "bold" }}
+                >
+                  {getPerformanceRemark(score)}
+                </div>
+              </div>
+            </CircularProgressbarWithChildren>
+          </div>
+        </div>
+
+        {/* Metric Cards */}
+        <div className="cards-container">
+          {cardData.map((item, index) => (
+            <ScoreCard
+              key={index}
+              Icon={item.icon}
+              title={item.label}
+              score={item.score}
+              maxScore={100}
+              weight={item.weight}
+              contributionPoints={item.contributionPoints}
+              width="220px"
+              color={item.color}
+            />
+          ))}
+        </div>
+
+        {/* Performance Summary for PDF */}
+        <div
+          style={{ marginTop: 30, padding: "10px"}}
+        >
+          <h3>Performance Summary</h3>
+          <p>
+            This employee achieved an overall performance score of{" "}
+            <strong>{score}</strong>, which indicates{" "}
+            <strong>{getPerformanceRemark(score)}</strong> performance in the
+            year {year}.
+          </p>
+          <ul>
+            <li>
+              OpenAir Contribution: {openAir}% (Score: {openAirScore})
+            </li>
+            <li>
+              Jira Contribution: {jira}% (Score: {jiraScore})
+            </li>
+            <li>
+              Git Contribution: {git}% (Score: {gitScore})
+            </li>
+          </ul>
+        </div>
       </div>
 
-      {/* Weightage Configuration card */}
+      {/* Weightage Configuration */}
       <div className="weightage-card">
         <div className="weightage-header">
           <FaCog size={18} className="weightage-icon" />
@@ -138,6 +232,7 @@ export default function PerformanceReview() {
               max={100}
               className="custom-slider"
               sx={{ mt: 1 }}
+              disabled
             />
           </div>
 
@@ -153,6 +248,7 @@ export default function PerformanceReview() {
               max={100}
               className="custom-slider"
               sx={{ mt: 1 }}
+              disabled
             />
           </div>
 
@@ -168,6 +264,7 @@ export default function PerformanceReview() {
               max={100}
               className="custom-slider"
               sx={{ mt: 1 }}
+              disabled
             />
           </div>
         </div>
