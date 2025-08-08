@@ -18,7 +18,7 @@ class TimesheetPage:
     async def open_latest_timesheet(self):
         print("🔍 Checking available timesheets...")
         # Format today’s date
-        today = datetime(2025, 8, 5) #datetime.today()#
+        today = datetime.today()#datetime(2025, 8, 5) #
         today_str = today.strftime("%d-%m-%y")  # Format: 10-07-25
 
         # hardcoded_date = datetime(2025, 8, 5)
