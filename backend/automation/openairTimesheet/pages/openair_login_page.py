@@ -12,9 +12,9 @@ class OpenAirLoginPage:
         self.SIGN_IN_BUTTON = "input[type='submit']"
         self.MS_EMAIL_INPUT = "#i0116"
         self.MS_NEXT_BUTTON = "#idSIButton9"
-        self.MS_PASSWORD_INPUT = "#passwordInput"
+        self.MS_PASSWORD_INPUT = "#i0118" #"#passwordInput"
         self.VALTECH_SIGNIN_BUTTON =  "#submitButton"
-        self.MFA_CODE_SELECTOR =  "#validEntropyNumber"
+        self.MFA_CODE_SELECTOR =  "#idRichContext_DisplaySign"#"#validEntropyNumber"
 
     async def goto(self):
         # print("🌐 Navigating to OpenAir SSO page...")
@@ -43,7 +43,7 @@ class OpenAirLoginPage:
 
     async def enter_valtech_password(self, password: str):
         print("🔐 Entering Valtech Password...")
-        await self.page.wait_for_selector(self.MS_PASSWORD_INPUT, timeout=10000)
+        await self.page.wait_for_selector(self.MS_PASSWORD_INPUT, timeout=60000)
 
         if password and password.strip() != "":
             await self.page.fill(self.MS_PASSWORD_INPUT, password)
