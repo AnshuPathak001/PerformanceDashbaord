@@ -15,6 +15,10 @@ export default function Integrations() {
     navigate("/github-details"); // ✅ programmatic navigation
   };
 
+  const goToOpenAir = () => {
+    navigate("/logtimesheet"); // ✅ programmatic navigation
+  };
+
   return (
     <div className="integrations-container">
       {/* Header with title and button */}
@@ -56,7 +60,7 @@ export default function Integrations() {
       {/* Tool Cards */}
       <div className="tools-grid">
         {/* OpenAir Timesheet */}
-        <div className="tool-card">
+        <div className="tool-card" onClick={goToOpenAir}>
           <div className="tool-header">
             <div className="tool-icon green-bg">
               <FaClock />
