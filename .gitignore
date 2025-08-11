@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+**/node_modules
 
 # testing
 /coverage
@@ -18,4 +18,12 @@ yarn-error.log*
 .env*.local
 .env
 
+# lock file
 package-lock.json
+
+# Visual Studio Code workspace folder
+.vs/
+
+# Ignore Python cache and compiled files
+__pycache__/
+*.py[cod]

@@ -1,0 +1,123 @@
+.login-page {
+  display: flex;
+  height: 100vh;
+  background: #0d0d0f;
+  color: #fff;
+}
+
+.login-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 10%;
+}
+
+.login-left h1 {
+  font-size: 48px;
+  color: #3b82f6;
+  margin-bottom: 20px;
+}
+
+.login-left p {
+  font-size: 20px;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+.login-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-box {
+  background: #1f1f24;
+  padding: 40px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.login-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #ffffff; /* Fix: make sure it's white so it shows inside dark box */
+}
+
+.login-box label {
+  display: block;
+  margin: 10px 0 5px;
+  font-size: 14px;
+}
+
+.login-box input[type="text"],
+.login-box input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background: #2a2a31;
+  color: #fff;
+}
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 20px;
+}
+
+.login-options .remember-me {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+}
+
+.login-options input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.forgot-link {
+  color: #3b82f6;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.signin-button {
+  width: 100%;
+  padding: 12px;
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.signin-button:hover {
+  background: #2f65d9;
+}
+
+.signup-text {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.signup-text a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}

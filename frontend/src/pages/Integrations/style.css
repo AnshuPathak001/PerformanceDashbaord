@@ -1,0 +1,308 @@
+.integrations-container {
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  background: #f5f7fa;
+  color: #000;
+}
+
+/* Dark Mode */
+.dark-theme .integrations-container {
+  background: #000;
+  color: #fff;
+}
+
+.page-title {
+  padding: 0;
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.page-description {
+  margin-top: 0;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.dark-theme .page-description {
+  color: #999;
+}
+
+.status-container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 32px;
+  border: 1px solid #ddd;
+}
+
+.dark-theme .status-container {
+  background-color: #111;
+  border: none;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.status-cards {
+  display: flex;
+  justify-content: space-between;
+}
+
+.status-card {
+  text-align: center;
+  flex: 1;
+  border: none;
+}
+
+.status-value {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.status-value.green {
+  color: #2e7d32 !important;
+}
+
+.status-value.red {
+  color: #d32f2f !important;
+}
+
+.status-value.blue {
+  color: #2962ff !important;
+}
+
+.status-value.black {
+  color: #000 !important;
+}
+
+.status-label {
+  color: #555;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.dark-theme .status-label {
+  color: #aaa;
+}
+
+.green {
+  color: #2e7d32;
+}
+
+.red {
+  color: #d32f2f;
+}
+
+.blue {
+  color: #2962ff;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+  gap: 20px;
+}
+
+.tool-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ddd;
+}
+
+.dark-theme .tool-card {
+  background: #111;
+  border: 1px solid #333;
+}
+
+.tool-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tool-icon {
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  color: #2e7d32;
+}
+
+.green-bg {
+  background-color: #e6f4ea;
+}
+
+.tool-info {
+  flex: 1;
+}
+
+.tool-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.tool-description {
+  margin: 2px 0 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.dark-theme .tool-description {
+  color: #aaa;
+}
+
+.tool-status.connected {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2e7d32;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tool-stats {
+  background-color: #f0f2f5;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 16px;
+  margin: 16px 0;
+}
+
+.dark-theme .tool-stats {
+  background-color: #222;
+}
+
+.label {
+  font-size: 12px;
+  color: #444;
+}
+
+.dark-theme .label {
+  color: #999;
+}
+
+.value {
+  font-weight: 600;
+  font-size: 14px;
+  color: #1c1c1e;
+}
+
+.dark-theme .value {
+  color: #fff;
+}
+
+.tool-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.last-sync {
+  font-size: 13px;
+  color: #555;
+}
+
+.dark-theme .last-sync {
+  color: #aaa;
+}
+
+.tool-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.disconnect-btn {
+  background: #ffe5e5;
+  color: #d32f2f;
+  border: none;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.disconnect-btn:hover {
+  background: #ffcccc;
+}
+
+.dark-theme .disconnect-btn {
+  color: #d32f2f;
+  background-color: #ffe5e5;
+}
+
+.dark-theme .disconnect-btn:hover {
+  background: #ffcccc;
+}
+
+.action-icon {
+  color: #333;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.dark-theme .action-icon {
+  color: #aaa;
+}
+
+/* Remove white border around status cards in dark mode */
+.dark-theme .status-cards .status-card {
+  border: none !important;
+}
+
+/* Header and Add Button Section */
+.integration-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.integration-title {
+  max-width: 70%;
+}
+
+.add-integration-button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.add-integration-button:hover {
+  background-color: #1d4ed8;
+}
+
+.dark-theme .add-integration-button {
+  background-color: #3b82f6;
+}
+
+.dark-theme .add-integration-button:hover {
+  background-color: #2563eb;
+}

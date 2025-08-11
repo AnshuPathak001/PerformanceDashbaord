@@ -1,0 +1,219 @@
+.settings-container {
+   margin-top: 0;
+  padding: 0;
+  background-color: #f9fafb;
+  font-family: Arial, sans-serif;
+  color: #000;
+}
+
+.dark-theme .settings-container {
+   margin-top: 0;
+  background-color: #000;
+  color: #fff;
+}
+ 
+.setting-description {
+   margin-top: 0;
+  color: #666;
+  margin-bottom: 24px;
+}
+
+/* Ensure label color is visible in light mode */
+.settings-header h2 {
+  margin-top: 0;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #111;
+}
+
+.settings-header p {
+  color: #6b7280;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.dark-theme .settings-header p {
+  color: #9ca3af;
+}
+
+.settings-tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 10px;
+}
+
+.dark-theme .settings-tabs {
+  border-bottom: 1px solid #333;
+}
+
+.tab {
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #4b5563;
+  font-weight: 500;
+  background-color: #f0f0f0;
+}
+
+.dark-theme .tab {
+  color: #ccc;
+  background-color: #111;
+  border: 1px solid #333;
+}
+
+.tab.active {
+  background-color: #eef2ff;
+  color: #1d4ed8;
+  border: 1px solid #c7d2fe;
+}
+
+.dark-theme .tab.active {
+  background-color: #1e293b;
+  color: #60a5fa;
+  border: 1px solid #334155;
+}
+
+.settings-form-section {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  color: #000;
+}
+
+.dark-theme .settings-form-section {
+  background-color: #111;
+  color: #fff;
+  border: 1px solid #333;
+  box-shadow: none;
+}
+
+.settings-form-section h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: inherit;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  width: 100%;
+}
+
+.form-group label {
+  font-size: 14px;
+  color: #111; /* FIXED: visible label in light mode */
+  margin-bottom: 6px;
+}
+
+.dark-theme .form-group label {
+  color: #d1d5db;
+}
+
+.form-group input {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: #f9fafb;
+  color: #000;
+}
+
+.dark-theme .form-group input {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.button-row {
+  margin-top: 20px;
+}
+
+.save-button {
+  padding: 10px 20px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.save-button:hover {
+  background-color: #1d4ed8;
+}
+
+.dropdown {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #f9fafb;
+  color: #000;
+}
+
+.dark-theme .dropdown {
+  background-color: #222;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+.password-input-wrapper {
+  position: relative;
+  width: 90%;
+}
+
+.password-input-wrapper input {
+  width: 100%;
+  padding-right: 40px;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.dark-theme .toggle-password {
+  color: #ccc;
+}
+/* Force settings header title to white in dark mode */
+.dark-theme .settings-header h2 {
+  color: #ffffff !important;
+}
+
+.dark-theme .save-button {
+background-color: #2563eb;
+  color: white;
+}
+
+.dark-theme .save-button:hover {
+  background-color: #1d4ed8;
+}

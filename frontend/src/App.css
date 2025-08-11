@@ -1,38 +1,152 @@
-.App {
-  text-align: center;
+/* Layout Structure */
+.app-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app-container > .sidebar {
+  flex-shrink: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex: 1;
+  height: 100vh;
+}
+
+.main-content > .header-container {
+  flex-shrink: 0;
+}
+
+.screen-content {
+  flex: 1;
+  overflow-y: auto;
+  background: transparent; /* ✅ use component bg instead */
+  padding: 20px;
+}
+
+/* Light Theme Defaults */
+html, body, #root, .app-container, .main-content {
+  height: 100%;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* ------------------- */
+/* Dark Theme Overrides */
+/* ------------------- */
+.dark-theme,
+.dark-theme html,
+.dark-theme body,
+.dark-theme #root,
+.dark-theme .app-container,
+.dark-theme .main-content {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+/* Header and Sidebar */
+.dark-theme .header-container,
+.dark-theme .sidebar {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+/* Cards */
+.dark-theme .status-card,
+.dark-theme .bottom-card,
+.dark-theme .tool-card,
+.dark-theme .card,
+.dark-theme .profile-card,
+.dark-theme .setting-card {
+  background-color: #111;
+  color: #ffffff;
+  border: 1px solid #333;
+}
+
+/* Icon wrapper boxes */
+.dark-theme .status-icon-wrapper,
+.dark-theme .activity-icon-wrapper,
+.dark-theme .profile-avatar {
+  background-color: #222;
+}
+
+/* Preserve gray text */
+.activity-subtitle,
+.setting-label,
+.setting-description,
+.gray-text {
+  color: #6b7280; /* stays same for light/dark */
+}
+
+/* Text styles */
+.dark-theme h1,
+.dark-theme h2,
+.dark-theme h3,
+.dark-theme h4,
+.dark-theme h5,
+.dark-theme h6,
+.dark-theme p,
+.dark-theme span,
+.dark-theme strong,
+.dark-theme .status-value,
+.dark-theme .status-label,
+.dark-theme .tool-name,
+.dark-theme .tool-description,
+.dark-theme .profile-name,
+.dark-theme .profile-role,
+.dark-theme .modal-content p,
+.dark-theme .setting-heading {
+  color: #ffffff;
+}
+
+/* Modal in dark mode */
+.dark-theme .modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.dark-theme .modal-content {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  border: 1px solid #333;
+}
+
+/* Buttons */
+button {
+  background-color: #007bff;
   color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Dark theme buttons */
+.dark-theme button {
+  background-color: #333;
+  color: #fff;
+}
+
+.dark-theme button:hover {
+  background-color: #555;
+}
+
+/* Scrollbar Styling */
+.screen-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.screen-content::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 4px;
+}
+
+.dark-theme .screen-content::-webkit-scrollbar-thumb {
+  background-color: #444;
 }

@@ -1,0 +1,12 @@
+pytest
+playwright
+pytest-playwright 
+dotenv
+fastapi
+openai
+
+uvicorn
+pydantic
+python-dotenv
+langchain-openai
+mcp-use

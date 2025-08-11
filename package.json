@@ -1,0 +1,26 @@
+{
+  "name": "performancedashbaord",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "github-mcp": "cmd /c \"cd backend && venv\\Scripts\\activate && uvicorn src.github.main:app --reload --host 0.0.0.0 --port 8001\"",
+    "backend": "cd backend && npm install && node index.js",
+    "frontend": "cd frontend && npm install && npm start",
+    "start": "concurrently \"npm run github-mcp\" \"npm run backend\" \"npm run frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnshuPathak001/PerformanceDashbaord.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnshuPathak001/PerformanceDashbaord/issues"
+  },
+  "homepage": "https://github.com/AnshuPathak001/PerformanceDashbaord#readme",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
+}
